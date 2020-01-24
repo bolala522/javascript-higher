@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function lunxun() {
+        console.log("开始短轮询");
+        let xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+            if (xhr.readyState===4){
+                if (xhr.status===200){
+                    console.log(xhr.responseText);
+                } else {
+                    console.log("出错："+xhr.status);
+                }
+            }
+        };
+        xhr.open("get","data-lunxun.php?name=bolala",true);
+        xhr.send(null);
+    }
+      setInterval(lunxun,2000);
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="my" placeholder="插入姓名">
+<script>
+    var my=document.querySelector("#my");
+    my.addEventListener("keydown",function (event) {
+        console.log(event.keyCode);
+    });
+    var event=document.createEvent("KeyboardEvent");
+    event.initKeyboardEvent("keydown",true,true,
+        document.defaultView,"a",0,"Shift",0);
+    my.dispatchEvent(event);
+</script>
+</body>
+</html>

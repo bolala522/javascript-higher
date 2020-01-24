@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #my{
+            width: 100px;
+            height: 100px;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+<div id="my">
+    <button>不显示广告</button>
+</div>
+<script>
+    var div=document.querySelector("#my");
+    var btn=document.querySelector("#my button");
+    btn.addEventListener("click",function (event) {
+        btn.onclick=null;//提前移除了将要删除元素绑定的事件
+        div.innerHTML="广告已隐藏";
+    })
+</script>
+</body>
+</html>

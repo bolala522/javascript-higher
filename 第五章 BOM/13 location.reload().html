@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aliquid amet aut consectetur consequuntur debitis eum molestias provident similique suscipit!</p>
+<input type="button" value="重新加载" onclick="myLoad()">
+<script>
+    function myLoad() {
+        location.reload();//可能从缓存加载
+        location.reload(true);//强制从服务器重新加载
+    }
+</script>
+</body>
+</html>

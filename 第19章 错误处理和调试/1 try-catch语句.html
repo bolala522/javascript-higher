@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>XW
+</head>
+<body>
+<script type="text/javascript">
+    try{
+    console.log(num);//可能出错的语句
+}catch (error) {
+        throw new Error('num没有定义');
+        throw new SyntaxError('抛出语法错误');
+        throw new TypeError('类型错误');
+        throw new RangeError('超出范围');
+        throw new EvalError('eval()出错');
+        throw new URIError('URI标识符错误');
+        throw new ReferenceError('引用错误');
+        //自定义的错误
+}finally {
+    console.log('始终会执行');//始终会执行
+}
+</script>
+</body>
+</html>

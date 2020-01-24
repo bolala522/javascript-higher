@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let person={name:'bolala'};
+    Object.seal(person);//person对象被密封
+    person.age=25;
+    person.name='hashiqi';
+    console.log(person.age);//undefined
+    console.log(person.name);//hashiqi
+    console.log(Object.isSealed(person));//true
+    console.log(Object.isExtensible(person))//false
+</script>
+</body>
+</html>

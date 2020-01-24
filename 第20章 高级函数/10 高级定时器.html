@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" id="btn">执行</button>
+<p>消息</p>
+<script>
+    let btn=document.querySelector('#btn'),
+    msg=document.querySelector('p');
+    console.log(msg);
+    btn.addEventListener('click',function () {
+        setInterval(function () {
+            document.writeln('haha');
+        },1000)
+    },false)
+</script>
+</body>
+</html>

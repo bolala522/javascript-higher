@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="myDiv" data-appid="bolala"
+     data-myname="hashiqi"></div>
+<script>
+    var myDiv=document.getElementById("myDiv");
+    console.log(myDiv.dataset.appid);//获得属性
+    myDiv.dataset.appid=4564747;//修改属性
+    if(myDiv.dataset.myname){
+        console.log("Hello,"+myDiv.dataset.myname);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <label for="form1"></label>
+    <input type="text" id="form1">
+    <label for="form2"></label>
+    <textarea id="form2"></textarea>
+</form>
+<button>点击</button>
+<script>
+    var btn = document.querySelector("button");
+    btn.addEventListener("click", function () {
+        var my = document.querySelector("#form");
+        console.log(my.elements[0].value);
+        console.log(my.elements[1].value);
+    })
+</script>
+</body>
+</html>

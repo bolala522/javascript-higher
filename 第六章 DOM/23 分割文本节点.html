@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var myDiv=document.createElement("div");
+    myDiv.id="bolala";
+    var textNode=document.createTextNode("Hello World");
+    myDiv.appendChild(textNode);
+    document.body.appendChild(myDiv);
+    var newNode=myDiv.childNodes[0].splitText(5);
+    //第五个开始分割，返回新文本字节
+    var oldNode=myDiv.childNodes[0];//原来的文本
+    console.log(oldNode);//Hello
+    console.log(newNode);// World
+    console.log(myDiv.childNodes.length);//2
+</script>
+</body>
+</html>

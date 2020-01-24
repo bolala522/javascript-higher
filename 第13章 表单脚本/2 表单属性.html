@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="my">
+    <label for="form1">姓名：</label>
+    <input type="text" id="form1">
+</form>
+<script>
+    var my=document.querySelector("#my");
+    my.elements[0].value="脚本添加";//添加值
+    my.elements[0].focus();//设置焦点
+    my.elements[0].disabled=true;//不可修改
+    </script>
+</body>
+</html>

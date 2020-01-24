@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+<div style="background-color: red;width: 100px;height: 200px;">
+
+</div>
+<script>
+    var my=document.querySelector("div");
+    var myStyle=document.defaultView.getComputedStyle(my,null);
+    console.log(myStyle.width);//100px
+    console.log(myStyle.backgroundColor);//rgb(255, 0, 0)
+    console.log(myStyle.border);//1px solid rgb(128, 128, 128)
+</script>
+</body>
+</html>

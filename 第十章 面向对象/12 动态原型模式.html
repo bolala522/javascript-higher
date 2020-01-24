@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name,age,job) {
+        this.name=name;
+        this.age=age;
+        this.job=job;
+        if (typeof this.sayName!=="function") {
+            Person.prototype.sayName=function () {
+                console.log(this.name)
+            }//进行判断，如果没有就添加原型
+        }
+    //    整体在构造函数内
+    }
+    var person1=new Person("bolala",25,"job1");
+    person1.sayName();//bolala
+</script>
+</body>
+</html>

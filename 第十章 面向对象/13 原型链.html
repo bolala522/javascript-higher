@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Fun1() {
+        this.name = true;
+    }
+    Fun1.prototype.getName = function () {
+        return this.name;
+    };
+
+    function Fun2() {
+        this.age = false;
+    }
+    Fun2.prototype = new Fun1();//将1的实例赋值给2的原型
+    Fun2.prototype.getAge = function () {
+        return this.age;
+    };//2原型的自有方法
+
+    var instance = new Fun2();
+    console.log(instance.getName());//true
+    console.log(instance instanceof Object);//true
+    console.log(instance instanceof Fun1);//true
+    console.log(instance instanceof Fun2);//true
+    console.log(Object.prototype.isPrototypeOf(instance));//true
+    console.log(Fun1.prototype.isPrototypeOf(instance));//true
+    console.log(Fun2.prototype.isPrototypeOf(instance));//true
+</script>
+</body>
+</html>

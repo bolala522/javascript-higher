@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="生成表格" onclick="createTable(8,4)">
+<script>
+    function createTable(rowNum,colNum) {
+        var table=document.createElement("table");
+        table.border="1";table.width="100%";table.cellSpacing="0";
+        var tbody=document.createElement("tbody");
+        table.appendChild(tbody);
+        for (var i=1;i<=rowNum;i++){
+            var row=document.createElement("tr");
+            tbody.appendChild(row);
+            for (var j=1;j<=colNum;j++){
+                var col=document.createElement("td");
+                var text=document.createTextNode(i+"+"+j);
+                col.appendChild(text);
+                row.appendChild(col);
+            }
+        }
+        document.body.appendChild(table);
+    }
+</script>
+</body>
+</html>

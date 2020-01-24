@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #myDiv{
+            height: 100px;
+            width: 100px;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+<div id="myDiv">
+    <span>haha</span>
+</div>
+<script>
+    var myDiv=document.querySelector("#myDiv");
+    myDiv.onclick=function (event) {
+        console.log(this);
+        console.log(event.currentTarget);
+        console.log(event.target);
+    }
+</script>
+</body>
+</html>

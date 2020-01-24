@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+var color="red";
+var myObject={color:"blue"};
+function say() {
+    console.log(this.color);
+}
+say();//red
+myObject.say=say;
+myObject.say();//blue
+</script>
+</body>
+</html>

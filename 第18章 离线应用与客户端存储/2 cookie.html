@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script>
+    Cookies.set('name','bolala',{expires:7});//设置名，值，有效期
+    Cookies.set('sex','man');
+    console.log(document.cookie);//name=bolala; sex=man
+    console.log(Cookies.get('sex'));//man 读取
+    Cookies.remove('sex');// 删除
+    console.log(document.cookie);//name=bolala
+</script>
+</body>
+</html>

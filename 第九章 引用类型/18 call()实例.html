@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.color="red";
+    var obj={color:"blue"};
+    function show(num1) {
+        console.log(this.color+num1);
+    }
+    show("3");//red3
+    show.call(window,6);//red6 作用域变成window
+    show.call(this,8);//red8 作用域变成当前（window）
+    show.call(obj,9)//blue9 作用域变成obj
+</script>
+</body>
+</html>

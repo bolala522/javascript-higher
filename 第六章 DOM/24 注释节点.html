@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var myDiv=document.getElementById("myDiv");
+            console.log(myDiv.firstChild.data);//注释节点
+            console.log(myDiv.firstChild.nodeName);//#comment
+            var comment=document.createComment("new comment");
+            //创建注释
+            document.body.appendChild(comment);//插入body中
+        }
+    </script>
+</head>
+<body>
+<div id="myDiv"><!--注释节点--></div>
+</body>
+</html>

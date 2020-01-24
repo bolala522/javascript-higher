@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function assert(condition,message) {
+        if (!condition){
+            throw new Error(message);
+        }
+    }//抛出错误的函数
+
+    function div(num1,num2) {
+        assert(typeof num1==='number' && typeof num2==='number',
+            'div():参数必须都是数字');
+        return num1/num2;
+    }
+   console.log( div(45,2));
+   console.log( div(45,'bolala'));//抛出错误
+</script>
+</body>
+</html>

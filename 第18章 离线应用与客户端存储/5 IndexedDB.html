@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const customerData = [
+        { ssn: "444-44-4444", name: "Bill", age: 35, email: "bill@company.com" },
+        { ssn: "555-55-5555", name: "Donna", age: 32, email: "donna@home.org" }
+    ];
+    var request=window.indexedDB.open("the_name", '7');
+    request.onerror=function (event) {
+        console.log('失败'+event.target.errorCode);
+    };
+    request.onsuccess=function (event) {
+        console.log('成功');
+    };
+    request.onupgradeneeded=function (event) {
+        console.log('hha');
+        var db=event.target.result;//数据库
+        var objectStore=db.createObjectStore('customers',{keyPath:'ssn'});
+        //创建customers的表 主键是ssn
+        objectStore.createIndex('name','name',{unique:false});
+        objectStore.createIndex('email','email',{unique:true});
+        // 创建两个索引 名字可重复
+        // 表创建完成后触发事件
+        objectStore.transaction.oncomplete=function (event) {
+            var customerObjectStore=
+                db.transaction('customers','readwrite').objectStore('customers');
+        //    创建事务，访问特定的表
+            customerData.forEach(function (customer) {
+                customerObjectStore.put(customer)
+            })
+        //    遍历数组，插入数据
+        };
+        // request=db.transaction('customers','readwrite').objectStore('customers');
+        // request.delete('444-44-4444');
+        // request.onsuccess=function () {
+        //     console.log('删除成功');
+        // }
+    };
+</script>
+</body>
+</html>

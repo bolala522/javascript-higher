@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Fun1(name) {
+        this.name=name;
+    }
+    function Fun2() {
+        Fun1.call(this,"bolala");
+        this.age=25;
+    }
+    var instance1=new Fun2();
+    console.log(instance1.age);//25
+    console.log(instance1.name);//bolala
+</script>
+</body>
+</html>

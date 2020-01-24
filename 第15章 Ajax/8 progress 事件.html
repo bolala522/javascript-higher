@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="par"></p>
+<p id="progress"></p>
+<script>
+    let p = document.querySelector("#par");
+    let progress = document.querySelector("#progress");
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            p.innerHTML = xhr.responseText;
+        } else {
+            console.log("请求失败：" + xhr.status);
+        }
+    };//接受完数据后的处理
+
+    xhr.onprogress = function (event) {
+        if (event.lengthComputable) {
+            console.log("获取进度中");
+            progress.innerHTML = "接收数据：" + event.loaded +
+                "；总数据量：" + event.total;
+        } else {
+            console.log("不能获取进度");
+        }
+    };//接收数据时的处理
+
+    xhr.open("get", "data_load.php", true);
+    xhr.send(null);
+</script>
+</body>
+</html>

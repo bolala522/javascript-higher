@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <label for="form1"></label>
+    <select id="form1">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <label for="form2"></label>
+    <select id="form2">
+        <option>一</option>
+        <option>二</option>
+        <option>三</option>
+    </select>
+    <button id="move"> 移动子选项>></button>
+    <button id="relize"> 重排首选项>></button>
+</form>
+<script>
+    var form1= document.querySelector("#form1");
+    var form2= document.querySelector("#form2");
+    var move=document.querySelector("#move");
+    var relize=document.querySelector("#relize");
+    move.addEventListener("click",function (event) {
+        event.preventDefault();
+        if (form1.options[0]){
+            form2.appendChild(form1.options[0]);
+            //原来的会移除 选择框2添加子项
+        }
+    });
+    relize.addEventListener("click",function (event) {
+        event.preventDefault();
+        var firstOpt=form2.options[form2.length-1];
+        form2.insertBefore(firstOpt,form2.options[0])
+        //将最后一个移到第一个
+    })
+</script>
+</body>
+</html>

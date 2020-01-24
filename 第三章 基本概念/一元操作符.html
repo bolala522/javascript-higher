@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var s1 = "01", s2 = "1.1", s3 = "z",
+        s4 = false, s5 = 1.1, s6 = {
+        valueOf: function () {
+            return -1;
+        }
+    };
+    s1 = +s1;s2 = +s2;s3 = +s3;
+    s4 = +s4;s5 = +s5;s6 = +s6;
+    for (i = 1; i <= 6; i++) {
+        console.log(eval("s" + i));
+    }
+    //1,1.1,NaN，0,1.1，-1
+</script>
+</body>
+</html>

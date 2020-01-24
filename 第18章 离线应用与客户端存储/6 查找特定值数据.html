@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var request=window.indexedDB.open("the_name", '7');
+    request.onerror=function (event) {
+        console.log('失败'+event.target.errorCode);
+    };
+    request.onsuccess=function (event) {
+        var db=event.target.result;//数据库
+        var transaction=db.transaction('customers','readwrite');//事务
+        var objectStore=transaction.objectStore('customers');//获得表
+        var request=objectStore.get("444-44-4444");//发起查询
+        request.onsuccess=function(){
+            console.log(request.result.name);//成功后显示 Bill
+        };
+        request.onerror=function(){
+            console.log('查询失败');
+        };
+        console.log('成功');
+    };
+    request.onupgradeneeded=function (event) {
+    };
+</script>
+</body>
+</html>

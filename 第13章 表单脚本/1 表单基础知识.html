@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="my">
+    <label for="red">红色：</label>
+    <input type="radio" name="color" value="red" id="red">
+    <label for="green">绿色：</label>
+    <input type="radio" name="color" value="red" id="green">
+    <label for="yellow">黄色：</label>
+    <input type="radio" name="color" value="red" id="yellow">
+</form>
+<script>
+    var my = document.querySelector("#my");
+    console.log(my.elements["color"]);//三个按钮
+    console.log(my.elements[1]);//input#green
+    console.log(my.elements["color"][1]===my.elements[1]);//true
+</script>
+</body>
+</html>

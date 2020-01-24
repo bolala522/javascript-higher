@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <label for="form1"></label>
+    <select id="form1">
+        <option>A</option>
+        <option value="vB">B</option>
+        <option>C</option>
+    </select>
+</form>
+<script>
+    var my = document.querySelector("#form1");
+    my.addEventListener("change", function (event) {
+        console.log(my.options[my.selectedIndex].text);
+        //1 取得选中子项的文本
+        for (var i = 0; i < my.options.length; i++) {
+            if (my.options[i].selected) {//2 判断selected值
+                console.log(i);
+            }
+        }
+    });
+</script>
+</body>
+</html>

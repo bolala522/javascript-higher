@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var person = {};
+    Object.defineProperty(person, "name",
+        {
+            writable: false,//不可修改
+            value: "bolala"
+        });
+    console.log(person.name);//bolala
+    person.name="hashiqi";
+    console.log(person.name);//bolala
+
+</script>
+</body>
+</html>

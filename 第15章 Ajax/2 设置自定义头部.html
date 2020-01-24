@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let xhr = new XMLHttpRequest();
+    xhr.open("get", "example.php?name=hashiqi", false);//启动异步请求
+    xhr.send(null);//发送请求
+    if (xhr.status>=200&& xhr.status<300 || xhr.status===304){
+        let data=JSON.parse(xhr.responseText);
+        console.log(data);
+    } else {
+        console.log("请求失败："+xhr.status);
+    }
+</script>
+</body>
+</html>

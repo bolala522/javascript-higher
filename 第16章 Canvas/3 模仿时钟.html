@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="can2" width="300" height="300">
+    您的浏览器不支持canvas
+</canvas>
+<script>
+    let can2 = document.querySelector("#can2");
+    let ctx = can2.getContext('2d');
+    drawclock();
+    function cicle(rate,x1,y1,x2,y2) {
+        for (let i = 0; i < rate; i++) {
+            ctx.save();ctx.beginPath();
+            ctx.translate(150, 150);ctx.rotate(2*i*Math.PI/rate);
+            ctx.moveTo(x1, y1);ctx.lineTo(x2, y2);
+            ctx.stroke();ctx.restore();
+        }
+    }
+    function drawclock() {
+        //得到执行时的秒，分，时
+        let time=new Date(),
+            s=time.getSeconds(),m=time.getMinutes(),
+            h=time.getHours()>12?time.getHours()-12:time.getHours();
+        ctx.clearRect(0, 0, 300, 300);//重新调用，清除画布
+
+        ctx.save();
+        let gradient=ctx.createRadialGradient(200,-50,0,200,200,400);
+        //第一个圆的坐标和半径 第二个圆的坐标和半径
+        gradient.addColorStop(0,"#ffffff"); //色标点:起点处颜色
+        gradient.addColorStop(1,"#6e1616");//色标点:终点处颜色
+        ctx.fillStyle=gradient;
+        ctx.fillRect(0,0,400,400);
+        ctx.restore();
+
+        ctx.save();
+        ctx.beginPath();ctx.translate(150, 150);
+        ctx.fillStyle = "rgba(0,0,0,0.3)";
+        ctx.scale(1,0.1);
+        ctx.arc(0, 1350, 80, 0, Math.PI * 2, true);
+        ctx.fill();
+        ctx.restore();
+
+
+        ctx.save();
+        ctx.beginPath();ctx.translate(150, 150);
+        ctx.fillStyle = "rgba(255,255,255,0.8)";
+        ctx.arc(0, 0, 123, 0, Math.PI * 2, true);ctx.fill();
+        ctx.restore();
+
+
+        //长刻度
+        cicle(12,0,110,0,120);
+        // 短刻度
+        cicle(60,0,115,0,117);
+        // 秒针
+        ctx.save();
+        ctx.beginPath();ctx.translate(150, 150);
+        ctx.fillStyle = "red";
+        ctx.rotate(s * 6 * Math.PI / 180 - 90 * Math.PI / 180);
+        ctx.moveTo(-20, -2);ctx.lineTo(120, 0);ctx.lineTo(-20, 2);
+        ctx.closePath();ctx.fill();
+        ctx.restore();
+        // 分针
+        ctx.save();
+        ctx.beginPath();ctx.translate(150, 150);
+        ctx.fillStyle = "grey";
+        ctx.rotate((m+s/60)*6*Math.PI/180-90*Math.PI/180);
+        ctx.moveTo(-15, -2);ctx.lineTo(98, 0);ctx.lineTo(-15, 2);
+        ctx.closePath();ctx.fill();
+        ctx.restore();
+        //时针
+        ctx.save();
+        ctx.beginPath();ctx.translate(150, 150);
+        ctx.fillStyle = "black";
+        ctx.rotate((h+(m+s/60)/60)*30*Math.PI/180-90*Math.PI/180);
+        ctx.moveTo(-10, -3);ctx.lineTo(80, 0);ctx.lineTo(-10, 3);
+        ctx.closePath();ctx.fill();
+        ctx.restore();
+        //圆盘
+        ctx.save();
+        ctx.beginPath();ctx.translate(150, 150);
+        ctx.lineWidth = 5;ctx.strokeStyle = "black";
+        ctx.arc(0, 0, 123, 0, Math.PI * 2, true);ctx.stroke();
+        ctx.restore();
+        // 文字刻度
+        ctx.save();
+        ctx.translate(150, 150);
+        ctx.font = "bold 18px Arial";ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("12", 0, -95);ctx.fillText("6", 0, 95);
+        ctx.restore();
+
+
+    }
+    setInterval("drawclock()", 1000);
+</script>
+</body>
+</html>

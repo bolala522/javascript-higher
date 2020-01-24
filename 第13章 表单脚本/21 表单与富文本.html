@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #my{
+            width: 300px;
+            height: 300px;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+<form id="myform" target="_blank">
+    <label for="name">姓名：</label>
+    <input type="text" id="name" name="username"><br>
+    <label for="article" >文章:</label>
+    <input id="article" type="text" name="article" style="display: none">
+    <!--隐藏的一个文本框控件-->
+    <div id="my" contenteditable="true"></div>
+    <button type="button" id="btn">格式化</button>
+    <button type="submit" id="mysubmit">上传文章</button>
+</form>
+<script>
+    let btn=document.querySelector("#btn");//格式化功能
+    btn.addEventListener("click",function (event) {
+        // 取得选择的文本  后面用DOM2的范围
+        let range=document.getSelection().getRangeAt(0);
+        //返回选区的DOM范围
+        let span=document.createElement("span");
+        span.style.backgroundColor="red";
+        span.style.color="white";
+        range.surroundContents(span);//range被span方法
+    });
+
+    let form=document.querySelector("#myform");
+    let div=document.querySelector("#my");
+    //提交事件 将div的内容赋给表单
+    form.addEventListener("submit",function (event) {
+        form.elements["article"].value=div.innerHTML;
+        //手动设置article的值
+    });
+</script>
+</body>
+</html>

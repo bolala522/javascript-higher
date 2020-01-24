@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <label for="form1"></label>
+    <input type="text" id="form1">
+</form>
+<button>点击</button>
+<script>
+    var btn = document.querySelector("button");
+    var my=document.querySelector("#form1");
+    btn.addEventListener("click", function () {
+        console.log(my.value);
+        my.focus();//先要有焦点
+        my.setSelectionRange(3,my.value.length);//部分选中
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="打开新窗口" onclick="open1()">
+<input type="button" value="调整窗口" onclick="resize1()">
+<script>
+    function open1() {
+        myWindow=window.open("","","width=2000,height=1000");
+        myWindow.document.write("打开新窗口");
+    }
+    function resize1() {
+        myWindow.resizeBy(-100,-50);//缩小
+    }
+</script>
+</body>
+</html>

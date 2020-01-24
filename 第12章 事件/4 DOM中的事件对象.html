@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" id="myBtn" value="点击">
+<input type="button" id="myBtn1" value="点击"
+       onclick="console.log(event.type)">
+<script>
+    var btn=document.querySelector("#myBtn");
+    btn.onclick=function (event) {
+        console.log(event.cancelable);//click
+        console.log(event.eventPhase);//click
+    }
+</script>
+</body>
+</html>

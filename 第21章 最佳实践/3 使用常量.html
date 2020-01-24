@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var Constants={
+        msg:'bolala',
+        url:'/test.php'
+    };
+    function validate(value) {
+        if (!value){
+            console.log(Constants.msg);
+            location.href=Constants.url;
+        }
+    }
+</script>
+</body>
+</html>

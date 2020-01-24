@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="draw">不支持canvas</canvas>
+<script>
+    let draw=document.querySelector("#draw");
+    let content=draw.getContext('2d');//2d 模式
+    let imgURI=draw.toDataURL("image/png");
+    let image=document.createElement("img");
+    image.src=imgURI; //Data URI 格式图片
+    //data:image/png;base64
+    image.style.border="1px solid grey";
+    document.body.appendChild(image);
+    console.log(image);
+</script>
+</body>
+</html>

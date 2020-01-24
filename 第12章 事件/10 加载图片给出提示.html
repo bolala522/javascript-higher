@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="加载图片">
+<script>
+   window.onload=function () {//页面加载完成执行
+       var btn=document.querySelector("input");
+       btn.addEventListener("click",function () {
+           var image=document.createElement("img");//创建标签
+           document.body.appendChild(image);
+           image.src="11.png";
+           image.addEventListener("load",function (event) {
+               alert("图片地址："+decodeURI(event.target.src));
+           },false);//加载完成时，给出提示
+       })
+   };
+</script>
+</body>
+</html>

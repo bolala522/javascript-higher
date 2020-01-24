@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var book = [
+        {
+            "title": "h",
+            "authors": ["ha", "wei"],
+            "edition": 3,
+            "year": 2019
+        },
+
+        {
+            "title": "woi",
+            "authors": ["z", "pe"],
+            "edition": 3,
+            "year": 2018,
+            toJSON:function () {
+                return this.authors;//返回数组
+            }
+        }
+    ];
+    let jsonText = JSON.stringify(book,
+        function (key, value) {    //函数过滤
+            switch (key) {
+                case "authors":
+                    return value.join(";");
+                case "edition":
+                    return undefined;//这个就是删除
+                default://默认不变传入的值
+                    return value;
+            }
+        },4);
+    console.log(jsonText);
+</script>
+</body>
+</html>

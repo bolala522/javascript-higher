@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(sum(5,6));//sum is not a function
+    var sum=function (num1,num2) {
+        return num1+num2;
+    };
+
+    //相当于：
+
+    var sum1;
+    console.log(sum1(5,6));//sum is not a function
+    sum1=function (num1,num2) {
+        return num1+num2;
+    };
+</script>
+</body>
+</html>

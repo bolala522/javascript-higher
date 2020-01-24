@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="my"></label>
+<input id="my" type="text" value="原值">
+<script>
+    var h1=document.createElement("h1");
+    var my=document.querySelector("#my");
+    my.addEventListener("compositionstart",function (event) {
+        console.log("阶段1："+event.data);
+        h1.innerHTML="";
+        document.body.appendChild(h1);
+    });
+    my.addEventListener("compositionupdate",function (event) {
+        console.log("阶段2："+event.data);
+    });
+    my.addEventListener("compositionend",function (event) {
+        console.log("阶段3："+event.data);
+        h1.innerHTML=event.data;
+        document.body.appendChild(h1);
+    })
+</script>
+</body>
+</html>

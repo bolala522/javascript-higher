@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //bind实现柯里化
+    function add(num1,num2,num3) {
+        return num1+num2+num3;
+    }
+    var fun1=add.bind(undefined,5);
+    var fun2=fun1.bind(undefined,56);
+    console.log(fun2(32));//93
+    var result=add.bind(undefined,34).bind(undefined,3)(7);
+    console.log(result)
+</script>
+</body>
+</html>

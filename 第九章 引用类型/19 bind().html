@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.color="red";
+    var obj={color:"blue"};
+    function show(num1) {
+        console.log(this.color+num1);
+    }
+    var show2=show.bind(obj,9);
+    //绑定一个作用域，赋值给新函数
+    show2();//blue9
+</script>
+</body>
+</html>

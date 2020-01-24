@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--style特性-->
+<div id="myDiv"
+     style="width: 200px;height: 300px"
+onclick="myClick()">
+    </div>
+<script>
+    var myDiv=document.getElementsByTagName("div")[0];
+    console.log(myDiv.style);
+    console.log(myDiv.getAttribute("style"));
+</script>
+<!--onclick特性-->
+<script>
+    function myClick() {
+        console.log("被点击了")
+    }
+    var myDiv=document.getElementsByTagName("div")[0];
+    console.log(myDiv.onclick);
+    console.log(myDiv.getAttribute("onclick"));
+</script>
+</body>
+</html>

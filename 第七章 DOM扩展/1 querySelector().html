@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="myDiv"></div>
+<p>Lorem ipsum dolor sit.</p>
+<p>Lorem ipsum dolor sit amet, consectetur.</p>
+<p>Lorem ipsum dolor sit amet.</p>
+<input type="button" value="设置类名" onclick="addClass()" >
+<script>
+    var div=document.querySelector("#myDiv");
+    console.log(div);//找到元素
+    function addClass() {
+        var p=document.querySelectorAll("p");
+        for (var i=0;i<p.length;i++){
+            p[i].setAttribute("class","red");
+        }
+    }
+</script>
+</body>
+</html>

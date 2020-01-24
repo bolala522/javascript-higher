@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .myDiv {
+            width: 100px;height: 100px;background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class='myDiv'></div>
+<script>
+    var width=document.styleSheets[0].rules[0].style.width;
+    var div = document.querySelector('.myDiv');
+    div.style.width=width;
+    setTimeout(function () {
+        var div = document.querySelector('.myDiv'),
+            left = parseInt(div.style.width) + 5;
+        div.style.width = left + 'px';
+        if (left < 300) {
+            setTimeout(arguments.callee,10)
+        }
+    }, 10);
+
+    setTimeout(function () {
+        //处理函数
+        setTimeout(arguments.callee,delay)
+    },delay)
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="SA"></label>
+<input type="text" value="名字" id="SA" >
+<script>
+    var my=document.querySelector("#SA");
+    my.addEventListener("keyup",function (event) {
+        console.log("释放"+event.keyCode);
+    });
+    my.addEventListener("keydown",function (event) {
+        console.log("按下"+event.keyCode);
+    })
+</script>
+</body>
+</html>

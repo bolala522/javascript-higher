@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <label for="name">姓名：</label>
+    <input type="text" id="name" name="name">
+    <label for="email">邮箱：</label>
+    <input type="text" id="email" name="email">
+    <input type="submit">
+</form>
+<div id="regres" style="display: none"></div>
+<script>
+    let myForm = document.querySelector("#form");
+    let regres = document.querySelector("#regres");
+
+    myForm.addEventListener("submit", function (event) {
+        //触发提交事件
+        event.preventDefault();//取消默认提交
+        let control1 = myForm.elements[0].value;
+        let control2 = myForm.elements[1].value;
+        let content = "name=" + control1 + "&email=" + control2;
+        //取得POST请求主体的字符串
+
+        let xhr = new XMLHttpRequest(); // 1 创建xhr
+        xhr.onreadystatechange = function () { // 2 触发接受数据后的事件
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300 ||
+                    xhr.status === 304) {
+                    regres.innerHTML = xhr.responseText;
+                    regres.style.display = "block";
+                }
+            }
+        };
+
+        xhr.open("post", "ajax-reg.php", true);// 3 open启动
+        xhr.setRequestHeader("Content-Type",
+            "application/x-www-form-urlencoded");
+        // 4 设置提交表单的请求头
+        xhr.send(content);  // 5 send 发送
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="myList">
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+</ul>
+<script>
+    var myUl=document.getElementById("myList");
+    console.log(myUl.childNodes.length);//7
+    //3个li和4个空格一共7个
+</script>
+<script>
+    var myLi=myUl.getElementsByTagName("li");
+    console.log(myLi.length);//3
+    //ul下的3个li元素
+</script>
+</body>
+</html>

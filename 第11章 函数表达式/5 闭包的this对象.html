@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var name="window";
+    var object={
+        name:"object",
+        getName:function () {
+            return function () {
+                return this.name;
+            }
+        }
+    };
+    console.log(object.getName().call(object));//object
+    console.log(object.getName().call(this));//window
+    // 这里的call(this)绑定了本地作用域
+    console.log(object.getName().apply(object));//object
+    var getName2=object.getName().bind(object);
+    //绑定object作用域的函数赋给新函数
+    console.log(getName2());//object
+</script>
+</body>
+</html>

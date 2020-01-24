@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" id="myBtn1" value="点击">
+<input type="button" id="myBtn2" value="删除一个事件">
+<script>
+    var btn1=document.querySelector("#myBtn1");
+    var btn2=document.querySelector("#myBtn2");
+    var handle1=function(){
+        console.log(this.id);
+    };
+    var handle2=function(){
+        console.log("被点击了");
+    };
+    var handle3=function(){
+        btn1.removeEventListener("click",handle1,false);
+    };
+    btn1.addEventListener("click",handle1,false);
+    btn1.addEventListener("click",handle2,false);
+    btn1.addEventListener("click",handle3,false);
+</script>
+</body>
+</html>

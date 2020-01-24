@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            display: flex;
+        }
+        .myDiv{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            font-size: 18px;
+            text-align: center;
+            background-color: grey;
+            color: white;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="myDiv" id="a"></div>
+<div class="myDiv" id="b"></div>
+<div class="myDiv" id="c"></div>
+
+<script>
+    var a=document.querySelector('#a');
+    a.addEventListener('click',function (e) {
+        var clickA=new Event('clickA');//自定义事件
+        document.dispatchEvent(clickA);//document触发自定义事件
+    },false)
+</script>
+<script src="js/b.js"></script>
+<script src="js/c.js"></script>
+
+</body>
+</html>

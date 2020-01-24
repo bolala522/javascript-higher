@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name,age,job) {
+        if (this instanceof Person){
+            this.name=name;
+            this.age=age;
+            this.job=job;
+        }else {
+            return new Person(name,age,job);
+        }
+    }
+
+    var person1=Person('bolala',25,'farmer');
+    //没有new this就指向全局对象
+    var person2=new Person('hashiqi',27,'actor');
+    console.log(window.name);//''
+    console.log(person1.name);//bolala
+    console.log(person2.name);//hashiqi
+</script>
+</body>
+</html>

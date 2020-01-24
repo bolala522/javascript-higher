@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var myDiv=document.getElementById("myDiv");
+            console.log(myDiv);//找到元素
+            var myImg=document.getElementsByTagName("img");
+            for (i=0;i<myImg.length;i++){
+                console.log(myImg[i].src);//输出所有地址
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="myDiv"></div>
+<div class="myImg">
+    <img src="img/mountain.png" alt="">
+    <img src="img/mountain2.png" alt="">
+    <img src="img/mountain3.png" alt="">
+</div>
+</body>
+</html>

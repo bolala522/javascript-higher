@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function factorial(num) {
+        if (num<=1){
+            return 1
+        } else {
+            return num*arguments.callee(num-1);
+        }
+    }
+    console.log(factorial(3));//6
+
+    function fac(num1) {
+        function fn(num1) {
+            if (num1<=1){
+                return 1
+            } else {
+                return num1*arguments.callee(num1-1);
+            }
+        }
+    }
+
+    var fac2=function f(num1) {
+        if (num1<=1){
+            return 1
+        } else {
+            return num1*f(num1-1);
+        }
+    };
+    var fac3=fac2;
+    fac2=null;
+    console.log(fac3(4));//24
+
+</script>
+</body>
+</html>

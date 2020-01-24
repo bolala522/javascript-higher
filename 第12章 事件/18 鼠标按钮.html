@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 600px;
+            height: 600px;
+            background-color: #004e9c;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        #div2 {
+            width: 400px;
+            height: 400px;
+            background-color: #0070cd;
+            margin: auto auto;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+
+        #div3 {
+            width: 200px;
+            height: 200px;
+            background-color: #0085ff;
+            margin: auto auto;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            color: white;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+        <div id="div3">
+            bolala
+        </div>
+    </div>
+</div>
+<script>
+    var div1 = document.querySelector("#div1");
+    var handle = function (event) {
+        switch (event.type) {
+            case "mousedown":
+                console.log("按下：" + event.button);
+                break;
+            case "mouseup":
+                console.log("释放：" + event.button);
+                break;
+        }
+    };
+    div2.onmousedown = handle;//会冒泡
+    div2.onmouseup = handle;
+</script>
+</body>
+</html>

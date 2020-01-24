@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr=["red","blue","yellow","black","white"];
+    arr.splice(0,2);
+    //yellow,black,white
+    arr.splice(1,0,"orange","purple");
+    //yellow,orange,purple,black,white
+    arr.splice(2,1,"color1","color2");
+    //yellow,orange,color1,color2,black,white
+    console.log(arr.indexOf("blue"));//-1
+    console.log(arr.indexOf("black"));//4
+</script>
+</body>
+</html>

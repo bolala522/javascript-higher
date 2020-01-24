@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var fun1 = function () {
+        var num = 10;
+        function fun2() {
+            return false;
+        }
+        var something = new Apple();
+        //也可以是Person(),Ball()等等
+        something.property = true;
+        something.method = function () {
+            console.log(++num);
+            return fun2();
+        };
+    //    返回这个对象
+        return something;
+    }
+</script>
+</body>
+</html>

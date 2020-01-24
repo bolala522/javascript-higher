@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <label for="form1"></label>
+    <select id="form1">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+</form>
+<script>
+    var form=document.querySelector("#form");
+    var my = document.querySelector("#form1");
+    var newOption=new Option("D","value=D");
+    my.appendChild(newOption);//第二种方法
+    newOption=new Option("E","value=E");
+    my.add(newOption,null);//第三种方法
+
+//    移除选项
+    my.removeChild(my.options[0]);//DOM方法
+    my.remove(1);//选择框方法
+    for (var i=0;i<my.options.length;i++){
+        my.remove(0);//移除所有子选项
+    }
+</script>
+</body>
+</html>

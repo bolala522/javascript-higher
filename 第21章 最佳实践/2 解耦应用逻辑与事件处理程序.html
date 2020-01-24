@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #msg{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="msg">信息</div>
+<script>
+    function handle(event) {
+        validate(event.button);
+    }//应用逻辑
+
+    function validate(value) {
+        if (value>-1){
+            document.getElementById('msg').style.display='block';
+        }
+    }//事件处理程序
+
+    document.addEventListener('click',handle,false);//绑定点击事件
+</script>
+</body>
+</html>

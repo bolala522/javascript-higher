@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var book = {
+        _year:2004,
+        edition:1
+    };
+    Object.defineProperty(book,"year",{
+        get:function () {//返回值
+            return this._year;
+        },
+        set:function (newValue) {//根据添加的新值来处理
+            if (newValue>2005){
+                this._year=newValue;
+                this.edition=4;
+            }
+        }
+    });
+    console.log(book.year);//2004
+    book.year=2007;
+    console.log(book.year);//2007
+    console.log(book.edition);//4
+</script>
+</body>
+</html>

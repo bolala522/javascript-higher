@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <label for="form1"></label>
+    <input type="text" id="form1">
+    <label for="form2"></label>
+    <input type="text" id="form2">
+</form>
+<script>
+    var my=document.querySelector("#form1");
+    my.addEventListener("keypress",function (event) {
+        event.preventDefault();//屏蔽所有字符输入
+    });
+
+    var my=document.querySelector("#form2");
+    my.addEventListener("keypress",function (event) {
+        var keyCode=String.fromCharCode(event.charCode);
+        //字符编码转为字符串
+        if (!/\d/.test(keyCode)){
+            console.log("请输入数字！");//正则不匹配
+        }else {
+            console.log("请输入正确！");//正则匹配
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(myname) {//作为参数的私有变量
+        this.getName=function () {
+            return myname;
+        };
+        this.setName=function (value) {
+            myname=value;
+        }
+    }
+    var person1=new Person("bolala");
+    console.log(person1.myname);//undefined
+    console.log(person1.getName());//bolala
+    person1.setName("hashiqi");
+    console.log(person1.getName());//hashiqi
+</script>
+</body>
+</html>

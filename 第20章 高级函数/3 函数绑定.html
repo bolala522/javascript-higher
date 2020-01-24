@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" id="btn">点击</button>
+<script>
+    var handler={
+        message:'鼠标事件：',
+        handleClick:function (event) {
+            console.log(this.message+" "+event.type);
+        }
+    };
+    var btn=document.querySelector('#btn');
+    // btn.addEventListener('click',handler.handleClick,false);
+    // undefined click
+    btn.addEventListener('click',handler.handleClick.bind(handler),false);
+    //鼠标事件： click handler就是传入作为this值的对象
+</script>
+</body>
+</html>

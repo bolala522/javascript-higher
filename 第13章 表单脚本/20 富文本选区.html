@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #my{
+            width: 300px;
+            height: 300px;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+<div id="my" contenteditable="true">富文本编辑</div>
+<button type="button" id="btn">格式化</button>
+<script>
+    var btn=document.querySelector("#btn");
+
+    btn.addEventListener("click",function (event) {
+        var select=document.getSelection().toString();
+        // 取得选择的文本  后面用DOM2的范围
+        var range=document.getSelection().getRangeAt(0);
+        //返回选区的DOM范围
+        var span=document.createElement("span");
+        span.style.backgroundColor="red";
+        span.style.color="white";
+        range.surroundContents(span);//range被span方法
+    })
+</script>
+</body>
+</html>

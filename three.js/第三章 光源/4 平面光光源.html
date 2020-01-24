@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<script src="../libs/three.js"></script>
+<script src="../libs/jquery-1.9.0.js"></script>
+<script src="../libs/stats.js"></script>
+<script src="../libs/dat.gui.js"></script>
+<!--延迟渲染器相关-->
+<script type="text/javascript" src="../libs/WebGLDeferredRenderer.js"></script>
+<script type="text/javascript" src="../libs/ShaderDeferred.js"></script>
+<script type="text/javascript" src="../libs/RenderPass.js"></script>
+<script type="text/javascript" src="../libs/EffectComposer.js"></script>
+<script type="text/javascript" src="../libs/CopyShader.js"></script>
+<script type="text/javascript" src="../libs/ShaderPass.js"></script>
+<script type="text/javascript" src="../libs/FXAAShader.js"></script>
+<script type="text/javascript" src="../libs/MaskPass.js"></script>
+<div id="WebGL-output"></div>
+<div id="state-output"></div>
+<script>
+    window.onload=function () {
+        var width=window.innerWidth,height=window.innerHeight;
+        var output=document.querySelector("#WebGL-output");
+        var scene = new THREE.Scene();
+        var camera=new THREE.PerspectiveCamera(45,width/height,0.1,1000);//透视相机
+        scene.add(camera);
+
+        //添加延迟渲染器
+        var renderer = new THREE.WebGLDeferredRenderer({
+            width: window.innerWidth,
+            height: window.innerHeight,
+            scale: 1, antialias: true,
+            tonemapping: THREE.FilmicOperator, brightness: 2.5
+        });
+
+        //添加地面
+        var planeGeometry = new THREE.PlaneGeometry(70, 70, 1, 1);
+        var planeMaterial = new THREE.MeshPhongMaterial({color: 0xffffff, specular: 0xffffff, shininess: 200});
+        var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+        plane.rotation.x = -0.5 * Math.PI;
+        plane.position.x = 0;
+        plane.position.y = 0;
+        plane.position.z = 0;
+        scene.add(plane);
+
+
+        //移动相机
+        camera.position.x = 20;
+        camera.position.y = 30;
+        camera.position.z = 21;
+        camera.lookAt(new THREE.Vector3(0, 0, -30));
+
+        //添加聚光灯
+        var spotLight0 = new THREE.SpotLight(0xcccccc);
+        spotLight0.position.set(-40, 60, -10);
+        spotLight0.intensity = 0.1;
+        spotLight0.lookAt(plane);
+        scene.add(spotLight0);
+
+
+        //添加平面光
+        var areaLight1 = new THREE.AreaLight(0xff0000, 3);
+        areaLight1.position.set(-10, 10, -35);
+        areaLight1.rotation.set(-Math.PI / 2, 0, 0);
+        areaLight1.width = 4;
+        areaLight1.height = 9.9;
+        scene.add(areaLight1);
+
+        //模拟平面光源的平面
+        var planeGeometry1 = new THREE.BoxGeometry(4, 10, 0);
+        var planeGeometry1Mat = new THREE.MeshBasicMaterial({color: 0xff0000});
+        var plane1 = new THREE.Mesh(planeGeometry1, planeGeometry1Mat);
+        plane1.position.copy(areaLight1.position);
+        scene.add(plane1);
+
+        //将渲染器挂到DOM上
+        output.appendChild(renderer.domElement);
+
+        render();
+        function render() {
+            requestAnimationFrame(render);
+            renderer.render(scene, camera);
+        }
+    }
+</script>
+</body>
+</html>

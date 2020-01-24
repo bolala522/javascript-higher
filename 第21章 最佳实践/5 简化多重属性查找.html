@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var query=window.location.href.substring(
+        window.location.href.indexOf('?')
+    );//六次对象查找都是O(n)操作
+
+    var url=window.location.href;
+    var query2=url.substring(url.indexOf('?'));
+    //四次属性查找，节省33%性能
+</script>
+</body>
+</html>

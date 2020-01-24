@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="show"></p>
+<script>
+    function chunk(array,process,delay,context) {
+        setTimeout(function () {
+            var item=array.shift();
+            process.call(context,item);
+            if (array.length>0){
+                setTimeout(arguments.callee,delay)
+            }
+        },delay);
+    }
+
+    var data=[23,45,23,878,343,878,45,232,22,534,32,1,456,46];
+    function show(item) {
+        var show=document.querySelector("#show");
+        show.innerHTML+=item+'<br>';
+    }
+    chunk(data,show,200);
+
+</script>
+</body>
+</html>

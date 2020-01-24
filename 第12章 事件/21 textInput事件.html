@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="名字" id="my">
+<script>
+    var my=document.querySelector("#my");
+    my.addEventListener("textInput",function (event) {
+        console.log(event.data);
+        console.log("输入方式："+event.inputMethod);
+        //只有IE支持
+    })
+</script>
+</body>
+</html>

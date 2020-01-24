@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<script>
+    var my=document.getElementsByTagName("div")[0];
+    my.style.height="100px";
+    my.style.width="300px";
+    my.style.backgroundColor="red";
+    my.style.border="5px solid blue";
+    my.style.color="white";
+    my.style.textAlign="center";
+    my.style.lineHeight="100px";
+    my.innerHTML="<span>.style</span>";
+    console.log(my.style.cssText);
+    console.log(my.style.length);
+    /*
+     * height: 100px; width: 300px; background-color: red;
+     * border: 5px solid blue; color: white; text-align: center;
+     * line-height: 100px;
+     */
+</script>
+</body>
+</html>

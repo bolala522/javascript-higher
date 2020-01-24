@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="74c236bc-a9a3-498f-8c19-6ae51b662b8a" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1Ueb8TusbEV4CSWjMTvas9vGgN0" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TheAviator" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\javascript higher\three.js\第八章 高级几何体\models\obj\male02" />
+      <recent name="C:\xampp\htdocs\javascript higher\three.js" />
+      <recent name="C:\xampp\htdocs\javascript higher\three.js\第八章 高级几何体" />
+      <recent name="C:\xampp\htdocs\javascript higher\three.js\第八章 高级几何体\models\obj" />
+      <recent name="C:\xampp\htdocs\javascript higher\three.js\第八章 高级几何体\css" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="74c236bc-a9a3-498f-8c19-6ae51b662b8a" name="Default" comment="" />
+      <created>1575374473998</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575374473998</updated>
+      <workItem from="1575374475103" duration="3671000" />
+      <workItem from="1575535213305" duration="11791000" />
+      <workItem from="1575548810980" duration="592000" />
+      <workItem from="1575557278900" duration="8987000" />
+      <workItem from="1575624578353" duration="15473000" />
+      <workItem from="1575710543878" duration="5275000" />
+      <workItem from="1575719850587" duration="334000" />
+      <workItem from="1575801103504" duration="10071000" />
+      <workItem from="1575966268166" duration="1000" />
+      <workItem from="1575966378279" duration="3023000" />
+      <workItem from="1576056656197" duration="1343000" />
+      <workItem from="1576145525384" duration="1273000" />
+      <workItem from="1576323861630" duration="5668000" />
+      <workItem from="1576336019525" duration="3682000" />
+      <workItem from="1576405645080" duration="7000" />
+      <workItem from="1576405668828" duration="901000" />
+      <workItem from="1576413125159" duration="74000" />
+      <workItem from="1576561931375" duration="1676000" />
+      <workItem from="1576655387383" duration="26000" />
+      <workItem from="1576830438023" duration="70000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    sessionStorage.setItem('name','bolala');
+    sessionStorage.age='25';
+    sessionStorage.sex='man';
+
+    for (var i=0;i<sessionStorage.length;i++){
+        var key=sessionStorage.key(i),
+            value1=sessionStorage.getItem(key);
+        console.log(key+":"+value1);
+    }
+</script>
+</body>
+</html>

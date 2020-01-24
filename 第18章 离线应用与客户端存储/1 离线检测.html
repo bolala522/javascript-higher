@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.addEventListener('load',function () {
+        window.addEventListener('online',function () {
+            console.log("连上了网"+navigator.onLine);
+        });//断网false
+
+        window.addEventListener('offline',function () {
+            console.log("断网"+navigator.onLine);
+        })//连上了网true
+    },false)
+</script>
+</body>
+</html>

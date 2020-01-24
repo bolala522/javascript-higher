@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="img/山景.png" alt="" style="display: none">
+<canvas id="can">您的浏览器不支持canvas</canvas>
+<script>
+    let img=document.images[0];
+    let can=document.querySelector("#can");
+    can.width=800;can.height=400;
+    let ctx=can.getContext('2d');
+    let pattern=ctx.createPattern(img,"repeat");
+    ctx.fillStyle=pattern;
+    ctx.fillRect(0,0,800,400);//重复图像
+</script>
+</body>
+</html>

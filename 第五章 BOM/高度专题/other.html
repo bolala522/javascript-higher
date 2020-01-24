@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <title>Javascript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: 12px/2 Arial;
+            background-color: #ccc;
+            padding: 20px;
+        }
+
+        #b1 {
+            width: 530px;
+            height: 320px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        #b2 {
+            width: 220px;
+            height: 130px;
+            background-color: orange;
+            border: 10px solid #085A90;
+            padding: 10px;
+            position: relative;
+            left: 140px;
+            top: 90px;
+        }
+    </style>
+</head>
+<body>
+<div id="b1">
+    <div id="b2"></div>
+</div>
+<script>
+    window.onload = function () {
+        var oB2 = document.getElementById('b2');
+
+        console.log("offsetWidth=" + oB2.offsetWidth, "offsetHeight=" + oB2.offsetHeight);
+        console.log("clientWidth=" + oB2.clientWidth, "clientHeight=" + oB2.clientHeight);
+        console.log("offsetLeft=" + oB2.offsetLeft, "offsetTop=" + oB2.offsetTop);
+        console.log("scrollWidth=" + oB2.scrollWidth, "scrollHeight=" + oB2.scrollHeight);
+        console.log("scrollLeft=" + oB2.scrollLeft, "scrollTop=" + oB2.scrollTop);
+    }
+</script>
+</body>

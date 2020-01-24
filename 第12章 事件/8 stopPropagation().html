@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #myDiv{
+            height: 100px;
+            width: 100px;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+<div id="myDiv">
+    <span>haha</span>
+</div>
+<script>
+    var myDiv=document.querySelector("#myDiv");
+    var span=document.querySelector("#myDiv span");
+    myDiv.onclick=function () {
+        console.log("div被点击了")
+    };
+    span.onclick=function (event) {
+        console.log("span被点击了");
+        event.stopPropagation();//不会传到div的点击事件
+    }
+</script>
+</body>
+</html>

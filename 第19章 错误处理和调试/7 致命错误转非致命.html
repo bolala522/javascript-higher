@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function logError(sev, msg) {
+        var img = new Image();
+        img.src = 'log.php?sev=' + encodeURIComponent(sev) + '&msg='
+            + encodeURIComponent(msg);
+
+    }
+
+    for (var i = 0; i < mods.length; i++) {
+        try {
+            mods[i].init();
+        } catch (err) {
+            console.log('独立处理错误');
+            logError('normal', '模组加载失败' + err.message);
+        }
+    }
+</script>
+</body>
+</html>

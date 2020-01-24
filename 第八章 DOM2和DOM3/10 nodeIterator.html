@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <p>world</p>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</div>
+<script>
+    var my = document.querySelector("div");
+    var filter=function (node) {
+        return node.tagName.toLowerCase()=="li"?
+            NodeFilter.FILTER_ACCEPT:
+            NodeFilter.FILTER_SKIP;
+    };
+    var iterator = document.createNodeIterator(
+        my, NodeFilter.SHOW_ELEMENT, filter, false);
+    var node = iterator.nextNode();
+    while (node !== null) {
+        console.log(node.tagName);
+        node = iterator.nextNode();
+    }
+</script>
+</body>
+</html>

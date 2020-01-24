@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="400" height="400" style="border: 1px solid #000;"></canvas>
+
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var angle = 30;
+    setInterval(function () {
+       ctx.save();
+        ctx.clearRect(0,0,300,300);
+        ctx.translate(200,200);
+       ctx.beginPath();
+       ctx.arc(0,0,10,2*Math.PI,false);
+       ctx.stroke();
+       ctx.restore();
+
+       for (let i=0;i<60;i++){
+           ctx.save();
+           ctx.translate(200,200);
+           ctx.beginPath();
+           ctx.rotate(i*Math.PI/6);
+           ctx.moveTo(0,190);
+           ctx.lineTo(0,180);
+           ctx.stroke();
+           ctx.restore();
+       }
+    },1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.addEventListener("hashchange",function (event) {
+        console.log("新地址是："+location.hash);//新地址是：#bolala
+        console.log("旧地址是："+event.oldURL);//旧地址
+    })
+</script>
+</body>
+</html>

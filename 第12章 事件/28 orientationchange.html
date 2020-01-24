@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<div>
+    <h1>手机浏览器旋转测试</h1>
+</div>
+<script>
+    var my=document.querySelector("#my");
+    window.addEventListener("orientationchange",function () {
+        console.log(window.orientation);
+        alert(window.orientation);//手机成功显示
+    })
+</script>
+</body>
+</html>

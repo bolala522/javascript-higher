@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .parent {
+            position: relative;
+            margin: 150px auto;
+            width: 200px;height:200px;
+            background-color: grey;
+            border: 10px solid black;
+            overflow: scroll;
+        }
+        .container{
+            /*position: relative;top: 50px;left: 50px;*/
+            width: 300px;height: 300px;
+            /*padding: 10px;border: 5px solid white;*/
+            background-color: #ffb49f;
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="container">
+    </div>
+</div>
+<input type="button" value="隐藏高度" onclick="show()">
+<script>
+    var par=document.querySelector(" .parent");
+    var cont=document.querySelector(".container");
+    function show() {
+        console.log(par.scrollHeight);//300
+        console.log(par.scrollWidth);//300
+        console.log(par.scrollTop);//117
+        console.log(par.scrollLeft);//117
+    }
+   </script>
+</body>
+</html>

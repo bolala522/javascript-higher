@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var person={
+        name:"bolala",
+        color:["blue","yellow"]
+    };
+    var person1=Object.create(person);
+    person1.color.push("black");
+    console.log(person1.color.toString());
+    //blue,yellow,black
+</script>
+</body>
+</html>

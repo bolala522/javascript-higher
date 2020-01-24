@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="height: 100px!important;
+width: 100px;border: 1px solid black"></div>
+<script>
+    var my=document.querySelector("div");
+    for (var i=0;i<my.style.length;i++){
+        var prop=my.style.item(i);
+        var value=my.style.getPropertyValue(prop);
+        console.log(prop+":"+value);
+    }
+</script>
+</body>
+</html>

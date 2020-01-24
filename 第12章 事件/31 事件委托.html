@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #my {
+            display: flex;
+            margin-top: 100px;
+        }
+
+        #my div {
+            margin-right: 10px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid grey;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="my">
+    <div id="change">change</div>
+    <div id="do">do</div>
+    <div id="say">say</div>
+</div>
+<script>
+    var my = document.querySelector("#my");
+    my.addEventListener("click", function (event) {
+        switch (event.target.id) {
+            case "change":
+                document.title = "事件委托";
+                break;
+            case "do":
+                event.target.style.color = "red";
+                break;
+            case "say":
+                alert("触发事件");
+                break
+        }
+    });
+    window.addEventListener("unload",function () {
+        my.onclick=null;
+        alert("删除点击事件");
+    })
+</script>
+</body>
+</html>

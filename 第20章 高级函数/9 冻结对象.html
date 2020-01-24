@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var person = {name: 'bolala'};
+    Object.freeze(person);
+    person.age = 13;
+    delete person.name;
+    console.log(person.name);//bolala;
+    person.name = 'hashiqi';
+    console.log(person.name);//bolala
+    console.log(Object.isSealed(person));//true
+    console.log(Object.isExtensible(person))//false
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 600px;
+            height: 600px;
+            background-color: #004e9c;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        #div2 {
+            width: 400px;
+            height: 400px;
+            background-color: #0070cd;
+            margin: auto auto;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+
+        #div3 {
+            width: 200px;
+            height: 200px;
+            background-color: #0085ff;
+            margin: auto auto;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            color: white;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+        <div id="div3">
+            bolala
+        </div>
+    </div>
+</div>
+<script>
+    var div1 = document.querySelector("#div1");
+    var div2 = document.querySelector("#div2");
+    var div3 = document.querySelector("#div3");
+    var handle = function (event) {
+        switch (event.type) {
+            case "mouseenter":
+                console.log("移入div2,进入子元素不触发");
+                break;
+            case "mouseleave":
+                console.log("移出div2");
+                break;
+            case "mouseover":
+                console.log("移入div2,进入子元素会触发");
+                break;
+            case "mouseout":
+                console.log("移出div2");
+                break;
+        }
+    };
+    // div2.onmouseenter = handle;
+    // div2.onmouseleave = handle;
+    div2.onmouseover = handle;//会冒泡
+    div2.onmouseout = handle;
+</script>
+</body>
+</html>

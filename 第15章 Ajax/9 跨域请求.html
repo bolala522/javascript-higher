@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="par"></p>
+<script>
+    let p = document.querySelector("#par");
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function () { //接受完数据后的处理
+        if (xhr.status === 200) {
+            p.innerHTML = xhr.responseText;
+            console.log(xhr.getAllResponseHeaders())
+        } else {
+            console.log("请求失败：" + xhr.status);
+        }
+    };
+    xhr.open("get", "http://localhost/javascript%20higher/" +
+        "%E7%AC%AC15%E7%AB%A0%20Ajax/data_load.php", true);
+    //传入绝对值的URL
+    xhr.send(null);
+</script>
+</body>
+</html>

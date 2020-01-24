@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function hasPlugin(name) {
+        name = name.toLowerCase();//查询的小写
+        //循环查询插件
+        for (var i = 0; i < navigator.plugins.length; i++) {
+            if (navigator.plugins[i].name.toLowerCase()
+            //找到数组中的插件名
+                .indexOf(name) > -1) {//和要查询的比较
+                return true;//有就返回真
+            }
+        }
+        return false;
+    }
+    console.log(hasPlugin("Chrome PDF Plugin"));//true
+</script>
+</body>
+</html>

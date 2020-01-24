@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 600px;
+            height: 600px;
+            background-color: #004e9c;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        #div2 {
+            width: 400px;
+            height: 400px;
+            background-color: #0070cd;
+            margin: auto auto;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+
+        #div3 {
+            width: 200px;
+            height: 200px;
+            background-color: #0085ff;
+            margin: auto auto;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            color: white;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+        <div id="div3">
+            bolala
+        </div>
+    </div>
+</div>
+<script>
+    var div1 = document.querySelector("#div1");
+    var handle = function (event) {
+        switch (event.type) {
+            case "mouseover":
+                console.log("移入主目标是："+event.target.id+"," +
+                    "相关元素是："+event.relatedTarget.id);
+                //移入主目标是：div2,相关元素是：div1
+                break;
+            case "mouseout":
+                console.log("移出主目标是："+event.target.id+"," +
+                    "相关元素是："+event.relatedTarget.id);
+                //移出主目标是：div2,相关元素是：div1
+                break;
+        }
+    };
+    div2.onmouseover = handle;//会冒泡
+    div2.onmouseout = handle;
+</script>
+</body>
+</html>

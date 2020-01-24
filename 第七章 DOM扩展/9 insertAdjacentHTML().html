@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload=function () {
+            var myDiv=document.getElementById("myDiv");
+            myDiv.insertAdjacentHTML("beforebegin","<p>beforebegin</p>");
+            console.log(document.body.innerHTML);
+            //<p>beforebegin</p><div id="myDiv">myDiv</div>
+            myDiv.insertAdjacentHTML("afterbegin","<p>afterbegin</p>");
+            console.log(document.body.innerHTML);
+            //<div id="myDiv"><p>afterbegin</p>myDiv</div>
+            myDiv.insertAdjacentHTML("beforeend","<p>beforeend</p>");
+            console.log(document.body.innerHTML);
+            //<div id="myDiv">myDiv<p>beforeend</p></div>
+            myDiv.insertAdjacentHTML("afterend","<p>afterend</p>");
+            console.log(document.body.innerHTML);
+            //<div id="myDiv">myDiv</div><p>afterend</p>
+        }
+    </script>
+</head>
+<body>
+<div id="myDiv">myDiv</div>
+</body>
+</html>

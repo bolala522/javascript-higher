@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {
+            position: absolute;
+            top: 500px;
+        }
+
+        div {
+            height: 900px;
+        }
+
+        #myDiv {
+            margin-top: 400px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="跳转" onclick="jump()">
+<div></div>
+<div id="myDiv">
+    跳转内容
+</div>
+<script>
+    function jump() {
+        var myDiv = document.getElementById("myDiv");
+        myDiv.scrollIntoView(false, {behavior: "smooth"});
+        /*
+         *{
+            behavior: "auto"  | "instant" | "smooth",
+            block:    "start" | "end",
+           } 第二个对象的可选值
+         *
+         *
+         */
+    }
+</script>
+</body>
+</html>

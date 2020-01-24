@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str="https://www.baidu.com/ index.html";
+    console.log(encodeURI(str));
+    //https://www.baidu.com/%20index.html
+    console.log(encodeURIComponent(str));
+    //https%3A%2F%2Fwww.baidu.com%2F%20index.html
+    var str2="https%3A%2F%2Fwww.baidu.com%2F%20index.html";
+    console.log(decodeURI(str2));
+    //https%3A%2F%2Fwww.baidu.com%2F index.html
+    console.log(decodeURIComponent(str2));
+    //https://www.baidu.com/ index.html
+    var global=function () {
+        return this;
+    }();
+</script>
+</body>
+</html>

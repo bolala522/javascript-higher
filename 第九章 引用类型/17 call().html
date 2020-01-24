@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sum(num1,num2) {
+        return num1+num2;
+    }
+    function callSum(num1,num2) {
+        return sum.apply(this,arguments);
+    }
+    function callSum2(num1,num2) {
+        return sum(num1,num2);
+    }
+    console.log(callSum(34,21));//55
+    console.log(callSum2(34,21));//55
+</script>
+</body>
+</html>

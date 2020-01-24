@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let xhr=new XMLHttpRequest();
+    xhr.onreadystatechange=function () {
+        if (xhr.readyState===3){//接收数据中的处理
+            console.log(xhr.responseText);
+        } else if (xhr.readyState===4){
+            console.log("请求完成");
+        }
+    };
+    xhr.open("get","data-http流.php",true);
+    xhr.send(null);
+</script>
+</body>
+</html>

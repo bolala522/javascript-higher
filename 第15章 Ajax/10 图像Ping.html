@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span id="show"></span>
+<script>
+    let span=document.querySelector("#show");
+    let img=new Image();
+    img.onload=img.onerror=function(){
+      let respon=new Date();
+      span.innerHTML=respon.toLocaleTimeString()+"接受成功";
+    };
+    img.src="http://localhost/javascript%20higher/" +
+        "%e7%ac%ac15%e7%ab%a0%20Ajax/data-Ping.php?count="+
+        parseInt((Math.random())*10+1);
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var myDiv=document.getElementById("myDiv");
+            console.log(myDiv.getAttribute("id"));//myDiv
+            console.log(myDiv.getAttribute("class"));//main
+            console.log(myDiv.getAttribute("lang"));//en
+            console.log(myDiv.getAttribute("dir"));//ltr
+            console.log(myDiv.getAttribute("title"));//news box
+            console.log(myDiv.getAttribute("data-myAttr"));//bolala
+        }
+    </script>
+</head>
+<body>
+<div id="myDiv" class="main" data-myAttr="bolala"
+     title="news box" lang="en" dir="ltr"></div>
+</body>
+</html>

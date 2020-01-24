@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr=[1,6,7,2,13,79,2,34];
+    var result=arr.every(function (item,index,array) {
+        return (item>6);
+    });//false
+    var result2=arr.some(function (item,index,array) {
+        return (item>6);
+    });//true
+    var result3=arr.filter(function (item,index,array) {
+        return (item>6);
+    });//7,13,79,34
+    var result4=arr.map(function (item,index,array) {
+        return item+3;
+    });//4,9,10,5,16,82,5,37
+    var result5=arr.forEach(function (item,index,array) {
+        console.log(item);
+    });//输出每一项，并不返回数组
+    var result6=arr.reduce(function (pre,cur,index,arrary) {
+        return pre+cur;
+    });
+    console.log(result6);//各项相加：114
+</script>
+</body>
+</html>

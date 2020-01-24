@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [21, 34, 546, 34];
+    let str='bolala';
+    function sort1(value) {
+        if (value instanceof Array){
+            value.sort();value.reverse();
+            return value;
+        }else {
+            throw new Error('必须传入数组');
+        }
+    }
+    console.log(sort1(arr));
+    console.log(sort1(str));
+</script>
+</body>
+</html>

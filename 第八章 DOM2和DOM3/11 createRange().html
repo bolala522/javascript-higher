@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="p1">
+    <b>Hello</b> world!
+</p>
+<script>
+    var my=document.getElementById("p1"),
+        range1=document.createRange(),
+        range2=document.createRange();
+    var nodes=range1.selectNode(my);
+    //<p id="p1"><b>Hello</b> world!</p>
+    var nodes2=range2.selectNodeContents(my);
+//    <b>Hello</b> world!
+</script>
+</body>
+</html>

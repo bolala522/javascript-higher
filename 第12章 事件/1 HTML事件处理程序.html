@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="特性指定"
+       onclick="console.log(this.value)">
+
+<input type="button" value="调用函数"
+       onclick="show()">
+<script>
+    function show() {
+        console.log(this.value);
+    }
+</script>
+</body>
+</html>

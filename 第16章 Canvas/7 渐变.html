@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="can">您的浏览器不支持canvas</canvas>
+<script>
+    let can=document.querySelector("#can");
+    can.width=400;can.height=400;
+    let ctx=can.getContext('2d');
+    let gradient=ctx.createLinearGradient(0,0,300,300);
+    //起点坐标 终点坐标
+    gradient.addColorStop(0,"white"); //色标点:起点处颜色
+    gradient.addColorStop(1,"black");//色标点:终点处颜色
+    ctx.fillStyle=gradient;
+    ctx.fillRect(0,0,300,300)
+</script>
+</body>
+</html>

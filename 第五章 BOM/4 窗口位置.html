@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function open1() {
+            myWindow=window.open('','','width=200,height=100');
+            myWindow.document.write("<p>这是我的窗口</p>");
+        }
+        function move1() {
+            myWindow.moveTo(0,0);//移动到0,0
+            myWindow.focus();
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="打开我的窗口" onclick="open1()">
+<input type="button" value="移动窗口" onclick="move1()">
+</body>
+</html>

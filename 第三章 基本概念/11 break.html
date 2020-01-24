@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    num=0;
+    outmost1:
+    for(i=0;i<10;i++){
+        for (j=0;j<10;j++){
+            if (i===5 && j===5) {
+                continue outmost1;
+                /*
+                 * 当执行到i5j5时，退出j的循环
+                 * 继续下一轮i6循环
+                 * 所以一共执行100次，少了5次
+                 */
+            }
+            num++;
+        }
+    }
+    console.log(num);//95
+</script>
+</body>
+</html>

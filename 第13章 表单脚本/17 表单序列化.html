@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form" target="_blank">
+    <label for="form1"></label>
+    <select id="form1" name="text">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <label for="form2"></label>
+    <select id="form2" name="text2">
+        <option>一</option>
+        <option>二</option>
+        <option>三</option>
+    </select>
+    <input type="text" name="myname">
+    <button id="move">提交数据</button>
+</form>
+<script>
+    function serialize(form) {
+        var parts = Array();
+        // 循环表单控件
+        for (var i = 0; i < form.elements.length; i++) {
+            item = form.elements[i];
+            switch (item.type) {//根据控件类型处理
+                case "select-one"://单选选择框
+                case "select-multiple"://多选选择框
+                    if (item.name.length) {//有name的有效值
+                        //循环选择框子项
+                        for (var j = 0; j < item.options.length; j++) {
+                            var option = item.options[j];//取得子项
+                            if (option.selected) {
+                                parts.push(encodeURIComponent(item.name)
+                                    + "=" + encodeURIComponent(item.value));
+                            }
+                        }
+                    }
+                    break;
+                case undefined://字段集合
+                case "file"://文件输入
+                case "submit"://提交按钮
+                case "reset"://重置按钮
+                case "button"://自定义按钮
+                    break;//略过
+                case "radio"://单选
+                case "checkbox"://复选
+                    if (item.checked) {//略过没有勾选的
+                        break;
+                    }
+                default:
+                    if (item.name.length) {//有name值的控件项
+                        parts.push(encodeURIComponent(item.name)
+                            + "=" + encodeURIComponent(item.value));
+                    }
+            }
+        }
+        return parts.join("&");
+    }
+    var my = document.querySelector("#form");
+    my.addEventListener("submit", function (event) {
+        console.log(serialize(my));
+    //    text=B&text2=%E4%BA%8C&myname=bolala 序列化成功
+    })
+</script>
+</body>
+</html>

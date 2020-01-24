@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Fun1() {
+        //没有this,变成私有变量和函数
+        var num=10;
+        function fun2() {
+            return false;
+        }
+        //特权方法
+        this.public=function () {
+            num++;
+            return fun2();
+        }
+    }
+    var person=new Fun1();
+    console.log(person.num);//undefined
+    console.log(person.public());//false
+</script>
+</body>
+</html>

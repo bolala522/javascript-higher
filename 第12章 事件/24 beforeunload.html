@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.addEventListener("beforeunload",function (event) {
+        event.preventDefault();
+        var message="还未提交，是否退出";//chrome不起作用，IE可以
+        event.returnValue=message;
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label for="form1"></label>
+    <input type="text" id="form1">
+    <label for="form2"></label>
+    <input autofocus type="text" id="form2">
+</form>
+<script>
+    window.addEventListener("load",function (event) {
+        document.forms[0].elements[0].focus();
+    //    默认焦点
+    })
+</script>
+</body>
+</html>

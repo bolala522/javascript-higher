@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="打开窗口" onclick="openWindow()">
+<input type="button" value="调整大小" onclick="resize()">
+<input type="button" value="移动窗口" onclick="moveto()">
+<input type="button" value="关闭窗口" onclick="myclose()">
+<script>
+    function openWindow() {
+        newWin = window.open("www.baidu.com", "baidu",
+            "width=400,height=400,top30,left=30,resizable=yes");
+    }
+    function resize() {
+        newWin.resizeTo(600, 600);
+    }
+    function moveto() {
+        newWin.moveTo(300, 300);
+    }
+    function myclose() {
+        newWin.close();
+    }
+</script>
+</body>
+</html>

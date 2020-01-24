@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>多个框架</title>
+</head>
+<frameset rows="400,100%">
+    <frame name="topFrame" src="https://www.tp-link.com.cn">
+    <frameset cols="50%,50%">
+        <frame name="leftFrame" src="http://www.dlink.com.cn/">
+        <frame name="rightFrame" src="http://www.adslr.com/">
+    </frameset>
+</frameset>
+<!--
+对于第一个框架：
+window.frames[0],window.frames["topFrame"],
+top.frames[0],top.frames["topFrame"],
+frames[0],frames["topFrame"]可以访问到
+
+-->
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="height: 100px!important;width: 100px">
+</div>
+<script>
+    var my=document.querySelector("div");
+    console.log(my.style.cssText);
+    //height: 100px; width: 100px;
+    console.log(my.style.length);//2
+    console.log(my.style.getPropertyPriority("height"));
+    //important
+    console.log(my.style.getPropertyValue("height"));
+    //100px
+    console.log(my.style.item(0));//width
+    my.style.removeProperty("width");//删除属性
+    my.style.setProperty("color","white","important");
+    //设置属性值，第三个可选
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function polling() {
+        console.log("开始长轮询");
+        let xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+            if (xhr.readyState===4){
+                if (xhr.status===200){
+                    console.log(xhr.responseText+"即将重新请求");
+                    polling();//接收数据后，重新请求
+                } else {
+                    console.log("出错："+xhr.status);
+                }
+            }
+        };
+        xhr.open("get","data-longlunxun.php",true);
+        xhr.send(null);
+    }
+    polling();
+</script>
+</body>
+</html>

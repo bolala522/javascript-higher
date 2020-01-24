@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <label for="form1"></label>
+    <input type="text" id="form1">
+    <label for="form2"></label>
+    <input type="text" id="form2">
+    <p>
+        This is some text writen by xxx.
+    </p>
+</form>
+<script>
+    var form1=document.querySelector("#form1");
+    form1.addEventListener("paste",function (event) {
+        var text=event.clipboardData.getData("text");//得到剪贴板的数据
+        console.log(text);
+        if (!/^\d*$/.test(text)) {//不全是数字就不能粘贴
+            console.log("验证不通过");
+            event.preventDefault();
+        }
+    });
+</script>
+</body>
+</html>

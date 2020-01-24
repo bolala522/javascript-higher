@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function object(o) {
+        function F() {}
+        F.prototype=o;
+        return new F();
+    }
+    function inheritPrototype(Fun1,Fun2) {
+        var prototype=object(Fun1.prototype);
+        //得到新的实例，不是Fun1的，只有sayName()
+        prototype.constructor=Fun2;//添加constructor属性
+        Fun2.prototype=prototype;//指定Fun2的原型
+    }
+    function Fun1(name) {
+        this.name=name;
+        this.color=["blue","blue"];
+    }
+    Fun1.prototype.sayName=function () {
+        console.log(this.name);
+    };
+    function Fun2(name,age) {
+        Fun1.call(this,name);//借用构造函数继承实例属性
+        this.age=age;
+    }
+    inheritPrototype(Fun1,Fun2);
+    Fun2.prototype.sayAge=function () {
+        console.log(this.age);//自有原型方法
+    };
+
+    var instance1=new Fun2("bolala",25);
+    instance1.sayName();//bolala
+</script>
+</body>
+</html>

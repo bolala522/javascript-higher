@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">模拟点击</button>
+<script>
+    //模拟click事件
+    //获取btn
+    var btn = document.querySelector("#btn");
+    //创建event
+    var event = document.createEvent("MouseEvents");
+    //初始化event
+    event.initMouseEvent("click",true,true,document.defaultView,0,0,0,0,0,false,false,false,false,0,null);
+    //click事件绑定事件处理程序
+    btn.onclick = function () {
+        console.log("hello");
+    };
+    //触发事件
+    btn.dispatchEvent(event); //hello
+    //取消引用
+    btn.onclick = null;
+</script>
+</body>
+</html>

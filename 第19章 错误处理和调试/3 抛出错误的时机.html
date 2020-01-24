@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function process(values) {
+        if (!(values instanceof Array)){
+            throw new Error('process函数的参数必须是数组');
+            //抛出自定义的错误信息
+        }
+        values.sort();
+        for (var i=0;i<values.length;i++){
+            console.log(values[i]);
+        }
+    }
+    let arr=[34,67,23,89,27,5];
+    let str='haha';
+    process(arr);//显示成功
+    process(str);报错
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>主页面</h1>
+<iframe id="child" src="1%20iframepage.html"></iframe>
+<div>
+    <h2>接受消息</h2>
+    <span id="message"></span>
+</div>
+<script>
+    window.addEventListener('load',function () {
+        //取得iframe的window对象
+        var iframeWindow=document.querySelector('#child').contentWindow;
+        iframeWindow.postMessage
+        ('主页面传递过来的消息','http://localhost:63342');
+        //接受发送过来的回执
+        window.addEventListener('message',function (event) {
+            document.querySelector('#message').innerHTML=event.data;
+        },false)
+    },false)
+</script>
+</body>
+</html>

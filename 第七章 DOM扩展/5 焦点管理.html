@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            margin-bottom: 6px;
+        }
+        input:last-child{
+            margin-top: 16px;
+            margin-left: 52px;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <label>姓名：</label>
+    <input type="text" name="Uname" placeholder="输入姓名"><br>
+    <label>性别：</label>
+    <input type="text" name="sex" placeholder="输入性别"><br>
+    <label>电话：</label>
+    <input type="tel" id="phone" name="phone" placeholder="输入电话"><br>
+    <input type="submit" value="提交表单">
+</form>
+<input type="button" value="事件" onclick="getPhone()">
+
+<script>
+    var phone=document.getElementById("phone");
+    phone.focus();//使焦点状态
+    console.log(document.activeElement);//获得哪个是焦点
+    console.log(document.hasFocus())//文档是否获得焦点
+</script>
+</body>
+</html>

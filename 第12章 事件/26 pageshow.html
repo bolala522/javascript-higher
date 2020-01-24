@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="http://www.baidu.com" >百度一下</a>
+<script>
+    window.onload=function () {
+        console.log("触发load事件");
+    };
+    (function f() {
+        var count=0;
+        window.onpageshow=function (event) {
+            count++;
+            console.log(count+" "+event.persisted);
+        }
+    })();
+</script>
+</body>
+</html>

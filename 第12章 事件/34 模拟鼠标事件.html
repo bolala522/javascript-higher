@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #my{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+        #show{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="my">点击区块</div>
+<div id="show">弹出窗口</div>
+<script>
+    var my=document.querySelector("#my");
+    var show=document.querySelector("#show");
+    my.addEventListener("click",function () {
+        show.style.display="block";
+    });
+    window.onload=function () {
+        setTimeout(function () {
+            var event=document.createEvent("MouseEvents");//创建事件对象
+            event.initMouseEvent("click",true,true,document.defaultView);
+            //初始化事件对象
+            my.dispatchEvent(event);//触发事件
+        },2000);
+        //两秒后能够自动触发点击事件
+    }
+</script>
+</body>
+</html>

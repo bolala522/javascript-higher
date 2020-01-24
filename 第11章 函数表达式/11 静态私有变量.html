@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    (function () {
+        var name = null;
+        Person=function(value){ //没有var 成为全局函数
+            name=value;
+        };
+        // 定义原型方法
+        Person.prototype.getName = function () {
+            return name;
+        };
+        Person.prototype.setName = function (value) {
+            name = value;
+        }
+    })();
+    var person1=new Person("bolala");
+    console.log(person1.getName());//bolala
+    person1.setName("hashiqi");
+    console.log(person1.getName());//hashiqi
+    var person2=new Person("kitty");
+    console.log(person2.getName());//kitty
+</script>
+</body>
+</html>

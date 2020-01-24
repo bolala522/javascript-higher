@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="myList"></ul>
+<script>
+    var list=document.querySelector("#myList"),
+        html='';
+    for (var i=0;i<10;i++){
+        html+="<li>item"+i+"</li>"
+    }
+    list.innerHTML=html;
+</script>
+</body>
+</html>

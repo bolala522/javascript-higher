@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>bolala</div>
+<script>
+    var myDiv=document.getElementsByTagName("div")[0];
+    var textNode=myDiv.childNodes[0];//取得文本节点
+    console.log(textNode);//<h1>someting change.</h1>
+    textNode.nodeValue="<h1>someting change.</h1>";//修改文本节点
+    console.log(textNode);//<h1>someting change.</h1>
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function throttle(method,delay) {
+        let valid=true;
+        return function () {
+            if (!valid){
+                return false;
+            }
+            valid=false;
+            //前一个定时器没有执行完时就是false,
+            // 此时重新触发直接返回false不执行方法
+            setTimeout(function () {
+                method();
+                valid=true;
+                //方法执行完毕后，变为true,
+                //此时在触发事件就能执行了
+            },delay);
+        }
+    }
+
+    function relizeDiv() {
+        console.log(document.body.offsetWidth);
+    }
+
+    window.addEventListener('resize',throttle(relizeDiv,1000),false);
+</script>
+</body>
+</html>

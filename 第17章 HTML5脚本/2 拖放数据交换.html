@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .show{
+            display: inline-block;
+            width: 500px;
+            height: 500px;
+            border: 1px solid grey;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1" class="show">
+    <img src="img/blue-boy.png" alt="" draggable="true" id="image">
+</div>
+<div id="div2" class="show"></div>
+<script>
+    var div1=document.querySelector("#div1");
+    var div2=document.querySelector("#div2");
+    var img=document.querySelector("#image");
+    img.addEventListener('dragstart',dragstart,false);
+    div1.addEventListener('drop',drop,false);
+    div2.addEventListener('drop',drop,false);
+    div1.addEventListener('dragover',dragover,false);
+    div2.addEventListener('dragover',dragover,false);
+    function dragstart(event) {
+        event.dataTransfer.setData('text',event.target.id);
+    }
+    function dragover(event) {
+        event.preventDefault();
+    }
+    function drop(event) {
+        event.preventDefault();
+        var data=event.dataTransfer.getData('text');
+        event.target.appendChild(document.getElementById(data));
+    }
+</script>
+</body>
+</html>

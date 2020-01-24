@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function add(num1,num2) {
+        return num1+num2;
+    }
+
+    function curry(fn) {
+        var args=Array.prototype.slice.call(arguments,1);
+        //第一个执行函数除了fn的参数
+        console.log(args);//5
+        return function () { //执行第二个函数
+            var innerArgs=Array.prototype.slice.call(arguments);
+            //内部参数
+            console.log(innerArgs);//3
+            var finalArgs=args.concat(innerArgs);//组合内部和外部参数
+            console.log(finalArgs);//5,3
+            return fn.apply(null,finalArgs);//8 //绑定组合参数
+        }
+    }
+
+    console.log(curry(add,5)(3));
+</script>
+</body>
+</html>

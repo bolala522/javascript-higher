@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <label for="form1"></label>
+    <input type="text" id="form1" name="num1" maxlength="3">
+    <label for="form2"></label>
+    <input type="text" id="form2" name="num2" maxlength="3">
+    <label for="form3"></label>
+    <input type="text" id="form3" name="num3" maxlength="4">
+</form>
+<script>
+    function tab(event) {
+        //长度符合时触发
+        if (event.target.value.length===event.target.maxLength){
+            for (var i=0;i<form.length;i++){
+                if (event.target===form.elements[i]){
+                    console.log(i+"触发");//确定第几个触发
+                    if (form.elements[i+1]){//如果有后面一项
+                        form.elements[i+1].focus();//获得焦点
+                    }
+                }
+            }
+        }
+    }
+    var form=document.querySelector('#form');
+    form.elements[0].addEventListener("keyup",tab);
+    form.elements[1].addEventListener("keyup",tab);
+    form.elements[2].addEventListener("keyup",tab);
+</script>
+</body>
+</html>

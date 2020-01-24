@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var div=document.createElement("div");
+    var h1=document.createElement("h1");
+    var h2=document.createElement("h2");
+    //插入后成为最后一个子节点
+    document.body.insertBefore(div,null);
+    var firstNode=document.body.childNodes[0];
+    //插入后成为第一个子节点
+    document.body.insertBefore(h1,firstNode);
+    var lastNode=document.body.lastChild;
+    //插入到最后一个子节点前面
+    document.body.insertBefore(h2,lastNode);
+</script>
+</body>
+</html>

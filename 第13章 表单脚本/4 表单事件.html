@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*#form1{*/
+            /*background-color: #d6f1ff;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<form id="my">
+    <label for="form1">输入数字：</label>
+    <input type="text" id="form1">
+</form>
+<script>
+    var patt=/[\d]/;
+    var my=document.querySelector("#my").elements[0];
+    my.addEventListener("focus",function (event) {
+        event.target.style.backgroundColor="#d6f1ff";
+    });//获得焦点触发
+
+    my.addEventListener("change",function (event) {
+        if (patt.test(event.target.value)) {
+            event.target.style.backgroundColor="green";
+        }else {
+            event.target.style.backgroundColor="red";
+
+        }
+    });//改变值+失去焦点触发
+李娜
+    my.addEventListener("blur",function (event) {
+        if (patt.test(event.target.value)) {
+            event.target.style.backgroundColor="green";
+        }else {
+            event.target.style.backgroundColor="red";
+
+        }
+    });//没有修改又移出触发
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function update() {
+        var doc=document;//全局变成局部 提高性能
+        var imgs=doc.getElementsByName('img');
+        var msg=doc.getElementById('msg');
+        for (var i=0,len=imgs.length;i<len;i++){
+            img[i].title=doc.title;
+        }
+        msg.innerHTML='更新完成';
+    }
+</script>
+</body>
+</html>

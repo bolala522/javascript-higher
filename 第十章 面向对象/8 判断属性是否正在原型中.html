@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function judge(object,name) {
+        return !object.hasOwnProperty(name) && (name in object);
+        //与真右假假，先判断不在实例属性中（真），
+        //如果属性存在（右真就真）就只能在原型属性中
+    }
+    function Person() {}
+    Person.prototype.name = "bolala";
+    Person.prototype.age = 25;
+    Person.prototype.job = "job1";
+    Person.prototype.sayName = function () {
+        console.log(this.name)
+    };
+    var person1 = new Person();
+    console.log(judge(person1,"name"));//true
+    person1.name="hashiqi";
+    console.log(judge(person1,"name"));//false
+</script>
+</body>
+</html>

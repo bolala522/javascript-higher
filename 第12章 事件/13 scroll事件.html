@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #myDiv {
+            width: 200px;
+            height: 30000px;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+<div id="myDiv">
+    bolala
+</div>
+<script>
+    var myDiv=document.querySelector("#myDiv");
+    window.addEventListener("scroll",function () {
+        console.log(document.documentElement.scrollTop);
+        //除了safari，别的是根据html的位置判断
+    })
+</script>
+</body>
+</html>

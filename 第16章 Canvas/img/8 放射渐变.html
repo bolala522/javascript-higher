@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #can{
+            background-color: #ff3caa;
+        }
+    </style>
+</head>
+<body>
+<canvas id="can">您的浏览器不支持canvas</canvas>
+<script>
+    let can=document.querySelector("#can");
+    can.width=400;can.height=400;
+    let ctx=can.getContext('2d');
+    let gradient=ctx.createRadialGradient(200,-100,0,200,200,400);
+    //第一个圆的坐标和半径 第二个圆的坐标和半径
+    gradient.addColorStop(0,"#ffa2e9"); //色标点:起点处颜色
+    gradient.addColorStop(1,"#ff3d62");//色标点:终点处颜色
+    ctx.fillStyle=gradient;
+    ctx.fillRect(0,0,400,400)
+</script>
+</body>
+</html>

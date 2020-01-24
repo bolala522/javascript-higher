@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var color = "blue";
+    function changeColor() {
+        var secondColor = "red";
+        function switchColor() {
+            var thirdColor = secondColor;
+            secondColor = color;
+            color = thirdColor;
+            //这里可以访问到：thirdColor secondColor color
+        }
+        //这里可以访问到：secondColor color
+        switchColor();
+    }
+    //这里可以访问到：color
+    changeColor();
+    console.log(color);//red
+</script>
+</body>
+</html>

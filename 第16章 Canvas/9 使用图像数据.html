@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="img/山景.png" alt="">
+<canvas id="can">您的浏览器不支持canvas</canvas>
+<script>
+    let img=document.images[0];
+    let can=document.querySelector("#can");
+    can.width=391;can.height=200;
+    let ctx=can.getContext('2d');
+    ctx.drawImage(img,0,0);
+
+    //取得图像数据
+    let imgData=ctx.getImageData(0,0,391,200);//x,y,宽，高
+    data=imgData.data;//取得数据
+    for (let i=0;i<data.length;i+=4){
+        let red=data[i];
+        let green=data[i+1];
+        let blue=data[i+2];
+        let alpha=data[i+3];
+        let average=Math.floor((red+green+blue)/3);//rgb平均值
+        //改图像数据
+        data[i]=average;
+        data[i+1]=average;
+        data[i+2]=average;
+        data[i+3]=alpha;
+    }
+    //回写数据
+    imgData.data=data;
+    ctx.putImageData(imgData,0,0);
+</script>
+</body>
+</html>

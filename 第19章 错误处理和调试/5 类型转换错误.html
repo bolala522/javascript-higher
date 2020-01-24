@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function cont(str,str2) {
+        var result=str;
+        result=str+str2;
+        if (typeof str2==='string'){//准确判断
+            result=str+str2;
+        }
+        return result;
+    }
+   console.log( cont('bo','lala'));//bolala
+    console.log( cont('bo',1));//bo
+    console.log( cont('bo',0));//bo
+</script>
+</body>
+</html>

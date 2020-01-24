@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ti
+
+
+
+
+        tle</title>
+</head>
+<body>
+<div id="myDiv"></div>
+<script>
+    var attr=document.createAttribute("align");
+    attr.value="center";
+    var myDiv=document.getElementById("myDiv");
+    myDiv.setAttributeNode(attr);
+    console.log(myDiv.attributes["align"].value);//center
+    //attributes节点中访问
+    console.log(myDiv.getAttribute("align"));//center
+    //getAttribute方法获得
+    console.log(myDiv.getAttributeNode("align").value);//center
+    //getAttributeNode方法获得
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="myList"></ul>
+<script>
+    var myList=document.getElementById("myList");
+    var myFrag=document.createDocumentFragment();//代码片段
+    for (var i=0;i<3;i++){
+        var li=document.createElement("li");//创建元素
+        var text=document.createTextNode("item"+i);//text节点
+        li.appendChild(text);//text插入li
+        myFrag.appendChild(li)//插入fragment
+    }
+    myList.appendChild(myFrag);//插入ul
+</script>
+</body>
+</html>

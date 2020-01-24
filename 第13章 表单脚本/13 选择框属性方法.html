@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <label for="form1"></label>
+    <select id="form1" size="5">
+        <option>A</option>
+        <option value="vB">B</option>
+        <option>C</option>
+    </select>
+</form>
+<script>
+    var my=document.querySelector("#form1");
+    console.log(my.options[1].value);//vB
+    console.log(my.options[1].text);//B
+</script>
+</body>
+</html>

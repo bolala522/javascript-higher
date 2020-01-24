@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(Number("1.1"));//1.1
+    console.log(Number(false));//0
+    console.log(Number(null));//0
+    console.log(Number(""));//0
+    console.log(Number("12red"));//NaN
+    console.log(Number("023"));//23
+    console.log(Number("0xf"));//15
+    console.log(Number(undefined));//NaN
+
+    console.log(parseInt("123blue"));//123
+    console.log(parseInt(""));//NaN
+    console.log(parseInt("0xA"));//10
+    console.log(parseInt("22.5"));//22
+    console.log(parseInt("070",8));//56
+    console.log(parseInt("70"));//70
+    console.log(parseInt("0xf"));//15
+
+    console.log(parseFloat("1234red"));//1234
+    console.log(parseFloat("0xA"));//0
+    console.log(parseFloat("22.5"));//22.5
+    console.log(parseFloat("22.43.7"));//22.43
+    console.log(parseFloat("0905.7"));//905.7
+    console.log(parseFloat("2.125e6"));//2125000
+</script>
+</body>
+</html>

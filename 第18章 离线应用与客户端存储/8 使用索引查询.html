@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var request=window.indexedDB.open("the_name", '7');
+    request.onerror=function (event) {
+        console.log('失败'+event.target.errorCode);
+    };
+    request.onsuccess=function (event) {
+        var db=event.target.result;//数据库
+        var transaction=db.transaction('customers','readwrite');//事务
+        var objectStore=transaction.objectStore('customers');//获得表
+        var index=objectStore.index('email');//使用age作为索引值
+
+        //get方法
+        index.get('donna@home.org').onsuccess=function(event){
+          console.log(event.target.result);//得到数据
+        };
+        //游标方法
+        index.openCursor().onsuccess=function(event){
+          console.log(event.target.result);
+
+        };
+        console.log('成功');
+    };
+    request.onupgradeneeded=function (event) {};
+</script>
+</body>
+</html>

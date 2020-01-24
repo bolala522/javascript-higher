@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+<body>
+<video id="myVideo" width="400px"  >
+    <source src="source/movie.mp4">
+    您的浏览器不支持
+</video>
+<div class="controls">
+    <input type="button" value="播放" id="video-btn">
+    <span id="current-time"></span>:<span id="duration"></span>
+</div>
+<script>
+    window.onload=function () {
+        var player=document.querySelector('#myVideo'),
+            btn=document.querySelector('#video-btn'),
+            curtime=document.querySelector('#current-time'),
+            duration=document.querySelector('#duration');
+        duration.innerHTML=parseInt(player.duration);//视频总时长
+        btn.addEventListener('click',function (event) {
+            if (player.paused){
+                player.play();btn.value="暂停";
+            }else{
+                player.pause();btn.value='播放';
+            }
+        });
+        loop();
+        function loop() {
+            curtime.innerHTML=parseInt(player.currentTime)  ;
+            requestAnimationFrame(loop);
+        }
+    }
+</script>
+</body>
+</html>

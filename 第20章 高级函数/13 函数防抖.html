@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function debounce(method, delay) {
+        let timer;
+        //闭包，第二次触发如果计时器没有执行完，timer依然存在
+        return function () {
+           if (timer){
+               clearTimeout(timer)//如果计时器存在，就取消掉
+           }
+           timer=setTimeout(method,delay);
+        }
+    }
+
+    function relizeDiv() {
+        console.log(document.body.offsetWidth);
+    }
+
+    window.addEventListener('resize',debounce(relizeDiv,200),false);
+</script>
+</body>
+</html>

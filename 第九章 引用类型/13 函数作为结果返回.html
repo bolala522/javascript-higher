@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function callFuction(functon,argument) {
+      return functon(argument);
+  }  //函数作为变量，返回执行的函数
+  function add(num1) {
+      return num1+10;
+  }
+  var result=callFuction(add,34);
+  console.log(result);//44
+</script>
+</body>
+</html>

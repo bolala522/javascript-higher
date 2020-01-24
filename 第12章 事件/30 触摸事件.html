@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #my {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+<diV id="my" style="top: 100px;left: 100px">
+    跟踪触摸
+</diV>
+<script>
+    var my=document.querySelector("#my");
+    my.addEventListener("touchstart",function (event) {
+        var target=event.targetTouches[0];
+        objx=target.pageX-parseFloat(my.style.left);
+        objy=target.pageY-parseFloat(my.style.top);
+        my.innerHTML=objx.toFixed(1)+":"+objy.toFixed(1);
+
+    });
+    my.addEventListener("touchmove",function (event) {
+        event.preventDefault();
+        if (event.targetTouches.length===1){
+            var target=event.targetTouches[0];
+            my.style.left=(target.pageX-objx)+"px";
+            my.style.top=(target.pageY- objy)+"px";
+        }
+    },false)
+</script>
+</body>
+</html>

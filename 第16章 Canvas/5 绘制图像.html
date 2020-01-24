@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="img/山景.png" alt="">
+<canvas id="can">您的浏览器不支持canvas</canvas>
+<script>
+    let img=document.images[0];
+    let can=document.querySelector("#can");
+    can.width=391;can.height=200;
+    let ctx=can.getContext('2d');
+    ctx.drawImage(img,30,0,200,200,0,0,50,50);
+
+    let imgURI=can.toDataURL("image/png");
+    let img2=document.createElement("img");
+    img2.src=imgURI;
+    document.body.appendChild(img2);
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   //用超时调用代替间歇调用
+    var num=0,max=10;
+    function addNumber(){
+        num++;
+        console.log(num);
+        if (num<max){
+            setTimeout(addNumber,500);
+        } else {
+            console.log("完成");
+        }
+    }
+   setTimeout(addNumber,500);//递归调用
+</script>
+</body>
+</html>

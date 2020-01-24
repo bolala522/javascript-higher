@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #parent {
+            margin: 20px auto;
+            box-sizing: border-box;
+            width: 500px;
+            height: 400px;
+            overflow-y:scroll;
+            border: 2px red solid;
+        }
+        #container {
+            margin: 10px;
+            border: 5px blue solid;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="parent">
+    <div id="container">
+        <!--https://blog.csdn.net/lzding/article/details/46371609-->
+        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias assumenda blanditiis commodi
+            corporis, debitis distinctio earum eligendi, eveniet expedita facere facilis fugiat harum id illum iusto
+            laboriosam maiores, molestias nesciunt officiis praesentium quis recusandae rem repellat sapiente tempore
+            veritatis voluptates! A ab alias aperiam asperiores, cupiditate delectus deleniti dicta doloremque ducimus
+            excepturi expedita facilis fuga fugiat hic, </h1>
+
+    </div>
+</div>
+<script>
+    var oB2=document.getElementById('container');
+    console.log("显示器高度:"+screen.height);
+    console.log("显示器排除任务栏高度:"+screen.availHeight);
+    console.log("文档显示区的高度："+window.innerHeight);
+    console.log("整个浏览器窗口的高度："+window.outerHeight);
+    console.log("html的高度："+document.documentElement.clientHeight);
+    console.log("："+oB2.clientHeight);
+    console.log("："+oB2.offsetHeight);
+    console.log("："+oB2.scrollHeight);
+    console.log("："+oB2.scrollTop);
+    setInterval(function () {
+        console.log("："+oB2.scrollTop);
+
+    },2000)
+</script>
+</body>
+</html>

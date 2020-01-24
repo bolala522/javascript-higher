@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+        #addCube {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+<script src="../libs/three.js"></script>
+<script src="../libs/jquery-1.9.0.js"></script>
+<script src="../libs/stats.js"></script>
+<script src="../libs/dat.gui.js"></script>
+<div id="WebGL-output"></div>
+<div id="state-output"></div>
+<script>
+    function init() {
+        //检测函数
+        function initStats() {
+            var stats=new Stats();
+            stats.setMode(0);
+            stats.domElement.style.position='absolute';
+            stats.domElement.style.left='0px';
+            stats.domElement.style.top='0px';
+            document.querySelector("#state-output").appendChild(stats.domElement);
+            return stats;
+        }
+
+        var stats=initStats();
+
+        //场景和相机
+        var scene=new  THREE.Scene();
+        var camera=new THREE.PerspectiveCamera(20,window.innerWidth/window.innerHeight,0.1,1000);
+        scene.add(camera);
+
+        var axes=new THREE.AxisHelper(20);
+        scene.add(axes);//添加坐标轴
+
+
+        //渲染器
+        var renderer=new THREE.WebGLRenderer();
+        renderer.setClearColor(0x222222,1.0);
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        renderer.shadowMapEnabled=true;
+
+
+        // 渲染器自适应窗口改变
+        window.onresize=function () {
+            camera.aspect = window.innerWidth / window.innerHeight;//宽高比例
+            camera.updateProjectionMatrix();//投影矩阵
+            renderer.setSize(window.innerWidth,window.innerHeight);//渲染范围
+        };
+
+        //地面
+        var planeGeometry=new THREE.PlaneGeometry(60,40,1,1);
+        var planeMaterial=new THREE.MeshLambertMaterial({color:0xffffff});
+        var plane=new THREE.Mesh(planeGeometry,planeMaterial);
+        plane.receiveShadow=true;
+        plane.rotation.x=-0.5*Math.PI;
+        plane.position.x=0;
+        plane.position.y=0;
+        plane.position.z=0;
+        scene.add(plane);
+
+        //相机位置朝向
+        camera.position.x=-30;
+        camera.position.y=40;//注意坐标
+        camera.position.z=30;
+        camera.lookAt(scene.position);
+
+        //环境光
+        var ambientLight=new THREE.AmbientLight(0x0c0c0c);
+        scene.add(ambientLight);
+
+        //聚光灯
+        var spotLight=new THREE.SpotLight(0xffffff);
+        spotLight.position.set(-40,60,-10);
+        spotLight.castShadow=true;
+        scene.add(spotLight);
+
+        //添加到DOM
+        document.querySelector("#WebGL-output").appendChild(renderer.domElement);
+
+        //8个角点
+        var vertices=[
+            new THREE.Vector3(1, 3, 1),
+            new THREE.Vector3(1, 3, -1),
+            new THREE.Vector3(1, -1, 1),
+            new THREE.Vector3(1, -1, -1),
+            new THREE.Vector3(-1, 3, -1),
+            new THREE.Vector3(-1, 3, 1),
+            new THREE.Vector3(-1, -1, -1),
+            new THREE.Vector3(-1, -1, 1)
+        ];
+
+        //12个三角面
+        var faces=[
+            new THREE.Face3(0, 2, 1),
+            new THREE.Face3(2, 3, 1),
+            new THREE.Face3(4, 6, 5),
+            new THREE.Face3(6, 7, 5),
+            new THREE.Face3(4, 5, 1),
+            new THREE.Face3(5, 0, 1),
+            new THREE.Face3(7, 6, 2),
+            new THREE.Face3(6, 3, 2),
+            new THREE.Face3(5, 7, 0),
+            new THREE.Face3(7, 2, 0),
+            new THREE.Face3(1, 3, 4),
+            new THREE.Face3(3, 6, 4)
+        ];
+
+        //自定义几何体
+        var geometry=new THREE.Geometry();
+        geometry.vertices=vertices;
+        geometry.faces=faces;
+        geometry.computeFaceNormals();//计算面法线
+
+        var materials = [
+            new THREE.MeshLambertMaterial({opacity: 0.6, color: 0x44ff44, transparent: true}),
+            new THREE.MeshBasicMaterial({color: 0x000000, wireframe: true})
+        ];
+
+        var mesh = THREE.SceneUtils.createMultiMaterialObject(geometry, materials);//创建多材质对象
+        mesh.children.forEach(function (e) {
+            e.castShadow = true
+        });
+        scene.add(mesh);
+
+        //控制变量 构造函数
+        function Controls(x,y,z) {
+            this.x=x;
+            this.y=y;
+            this.z=z;
+        }
+
+        //克隆构造函数
+        function Clone() {
+            this.clone=function () {
+                var clonedGeometry = mesh.children[0].geometry.clone();//克隆几何体
+                var materials = [
+                    new THREE.MeshLambertMaterial({opacity: 0.6, color: 0xff44ff, transparent: true}),
+                    new THREE.MeshBasicMaterial({color: 0x000000, wireframe: true})
+
+                ];
+
+                var mesh2 = THREE.SceneUtils.createMultiMaterialObject(clonedGeometry, materials);
+                mesh2.children.forEach(function (e) {
+                    e.castShadow = true
+                });
+
+                mesh2.translateX(5);
+                mesh2.translateZ(5);
+                mesh2.name = "clone";
+                scene.remove(scene.getChildByName("clone"));
+                scene.add(mesh2);
+            }
+        }
+
+        var clone=new Clone();
+
+        //8个顶点的坐标对象数组；
+        var controlPoints=[];
+        controlPoints.push(new Controls(3, 5, 3));
+        controlPoints.push(new Controls(3, 5, 0));
+        controlPoints.push(new Controls(3, 0, 3));
+        controlPoints.push(new Controls(3, 0, 0));
+        controlPoints.push(new Controls(0, 5, 0));
+        controlPoints.push(new Controls(0, 5, 3));
+        controlPoints.push(new Controls(0, 0, 0));
+        controlPoints.push(new Controls(0, 0, 3));
+
+        //绑定参数
+        var gui=new dat.GUI();
+        for (var i=0;i<8;i++){
+            f1=gui.addFolder('顶点'+(i+1));
+            f1.add(controlPoints[i],'x',-10,10);
+            f1.add(controlPoints[i],'y',-10,10);
+            f1.add(controlPoints[i],'z',-10,10);
+        }
+        gui.add(clone,"clone");
+
+        //渲染函数
+        function render() {
+            stats.update();
+            var vertices=[];//将GUI的点绘制到图形
+            for (var i=0;i<8;i++){
+                vertices.push(new THREE.Vector3(controlPoints[i].x,controlPoints[i].y,controlPoints[i].z));
+            }
+            mesh.children.forEach(function (e) {
+                e.geometry.vertices=vertices;//赋值新点
+                e.geometry.verticesNeedUpdate=true;//更新点
+                e.geometry.computeFaceNormals();//绘制面
+            });
+
+            requestAnimationFrame(render);
+            renderer.render(scene,camera);
+        }
+        render();
+    }
+
+    //load触发执行
+    window.onload=init;
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="p1"><b>Hello</b> world!</p>
+<script>
+    var my=document.getElementById("p1"),
+        helloNode=my.firstChild.firstChild,
+        worldNode=my.lastChild,
+        range=document.createRange();
+    range.selectNode(helloNode);
+    var span=document.createElement("span"),
+        text=document.createTextNode("span");
+    span.style.color="red";
+    span.appendChild(text);
+    range.surroundContents(span);
+</script>
+</body>
+</html>

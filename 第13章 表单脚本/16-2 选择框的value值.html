@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <label for="form1"></label>
+    <select id="form1">
+        <option>A</option>
+        <option value="daasa">B</option>
+        <option>C</option>
+    </select>
+    <label for="form2"></label>
+    <select id="form2">
+        <option>一</option>
+        <option>二</option>
+        <option>三</option>
+    </select>
+    <button id="move"> 移动子选项>></button>
+    <button id="relize"> 重排首选项>></button>
+</form>
+<script>
+    var form1= document.querySelector("#form1");
+    var form2= document.querySelector("#form2");
+    form1.addEventListener("change",function (event) {
+        console.log(form1.value);
+    })
+</script>
+</body>
+</html>

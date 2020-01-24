@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>haorooms博客长轮询测试案例</title>
+    <script src="http://www.haorooms.com/theme/assets/js/jquery.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    //前端Ajax持续调用服务端，称为Ajax轮询技术
+    var getting = {
+        url: 'server.php',
+        dataType: 'json',
+        success: function (res) {
+            console.log(res);
+            $.ajax(getting); //关键在这里，回调函数内再次请求Ajax
+        },
+        //当请求时间过长（默认为60秒），就再次调用ajax长轮询
+        error: function (res) {
+            $.ajax($getting);
+        }
+    };
+    $.ajax(getting);
+</script>
+</body>
+</html>

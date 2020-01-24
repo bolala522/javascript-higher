@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function fun2() {
+        var arr=[];
+        var i;
+        function fanhui(num) {
+            return function () {
+                return num
+            }
+        }
+        for (i=0;i<4;i++){
+            arr[i]=fanhui(i);
+        }
+        return arr;
+    }
+    console.log(fun2()[3]());//3
+</script>
+</body>
+</html>

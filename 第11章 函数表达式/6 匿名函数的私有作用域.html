@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    count=3;
+    +function output() {
+        +function () {
+            for (var i=0;i<count;i++){
+                console.log(i);
+            }
+        }();
+        console.log(i);//报错 i is not defined
+    }();
+</script>
+</body>
+</html>

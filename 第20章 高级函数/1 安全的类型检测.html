@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr=[1,3];
+    let json={"name":"zhangsan","age":12};//[object Object]
+
+    console.log(Object.prototype.toString.call(JSON));//[object JSON]
+    //[object Array]
+
+    function isArray(value) {
+        return Object.prototype.toString.call(arr)==='[object Array]';
+    }
+    function isFunction(value) {
+        return Object.prototype.toString.call(arr)==='[object Function]';
+    }
+    function isRegExp(value) {
+        return Object.prototype.toString.call(arr)==='[object RegExp]';
+    }
+
+    console.log(isArray(arr));//true
+</script>
+</body>
+</html>

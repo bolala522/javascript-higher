@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var book = {};
+    Object.defineProperties(book, {
+        _year: {//数据类型属性，默认智只能对象方法访问
+            writable: true,
+            value: 2018
+        },
+        edition: {//数据类型属性
+            writable: true,
+            value: 2018
+        },
+        year: {//访问器属性
+            get: function () {
+                return this._year;
+            },
+            set: function (newValue) {
+                if (newValue > 2015) {
+                    this._year = newValue;
+                    this.edition = "数据改变了";
+                }
+            }
+        }
+    });
+    var descriptor=Object.getOwnPropertyDescriptor(book,"_year");
+    console.log(descriptor.value);//2018
+</script>
+</body>
+</html>

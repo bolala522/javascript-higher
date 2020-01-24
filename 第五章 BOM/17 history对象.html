@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="跳转百度" onclick="jump()">
+<input type="button" value="前进" onclick="forward()">
+<input type="button" value="返回" onclick="back()">
+<script>
+function jump() {
+    location.href="http://www.baidu.com";
+}
+function forward() {
+    history.go(1);//前进一页
+    // history.forward();
+}
+function back() {
+    history.go(-1);//后退一页
+    // history.back();
+}
+</script>
+</body>
+</html>

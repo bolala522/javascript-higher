@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str1="javascript";
+    var result=str1.search(/script/);
+    console.log(result);//4
+    str1=str1.replace(/javascript/gi,"JavaScript");
+    //JavaScript
+    var str="1 plus 2 equal 3";
+    console.log(str.match(/\d+/g));//[1,2,3]
+    var str2="123,456,789".split(",");
+    console.log(str2);//[123,456,789]
+    var str3="123, 456 ,789".split(/\s*,\s*/);
+    console.log(str3);//[123,456,789]
+
+    var reg=new RegExp("\\d{5}","gi");
+</script>
+</body>
+</html>

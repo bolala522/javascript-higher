@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function func1() {
+        console.log("caller");
+        func2();
+    }
+    function func2() {
+        console.log(arguments.callee.caller);
+    }
+    func1();
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>子页面</h3>
+<span id="message"></span>
+<script>
+    window.addEventListener('message',function (event) {
+        console.log(event);
+        document.querySelector('#message').innerHTML=event.data+event.origin;
+        event.source.postMessage('子页面的回执','http://localhost:63342');
+    },false)
+</script>
+</body>
+</html>

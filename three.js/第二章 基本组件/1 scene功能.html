@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+        #addCube {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+<script src="../libs/three.js"></script>
+<script src="../libs/jquery-1.9.0.js"></script>
+<script src="../libs/stats.js"></script>
+<script src="../libs/dat.gui.js"></script>
+<div id="WebGL-output"></div>
+<div id="state-output"></div>
+<script>
+    function init() {
+        //检测函数
+        function initStats() {
+            var stats=new Stats();
+            stats.setMode(0);
+            stats.domElement.style.position='absolute';
+            stats.domElement.style.left='0px';
+            stats.domElement.style.top='0px';
+            document.querySelector("#state-output").appendChild(stats.domElement);
+            return stats;
+        }
+
+        var stats=initStats();
+
+        //场景和相机
+        var scene=new  THREE.Scene();
+        scene.fog=new THREE.FogExp2(0Xffffff,0.01);
+        scene.overrideMaterial=new THREE.MeshLambertMaterial({color:0xffffff});
+        var camera=new THREE.PerspectiveCamera(45,window.innerWidth/window.innerHeight,0.1,1000);
+        scene.add(camera);
+
+        var axes=new THREE.AxisHelper(20);
+        scene.add(axes);//添加坐标轴
+
+
+        //渲染器
+        var renderer=new THREE.WebGLRenderer();
+        renderer.setClearColor(0xEEEEEE,1.0);
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        renderer.shadowMapEnabled=true;
+
+
+        // 渲染器自适应窗口改变
+        window.onresize=function () {
+            camera.aspect = window.innerWidth / window.innerHeight;//宽高比例
+            camera.updateProjectionMatrix();//投影矩阵
+            renderer.setSize(window.innerWidth,window.innerHeight);//渲染范围
+        };
+
+        //地面
+        var planeGeometry=new THREE.PlaneGeometry(60,40,1,1);
+        var planeMaterial=new THREE.MeshLambertMaterial({color:0xffffff});
+        var plane=new THREE.Mesh(planeGeometry,planeMaterial);
+        plane.receiveShadow=true;
+        plane.rotation.x=-0.5*Math.PI;
+        plane.position.x=0;
+        plane.position.y=0;
+        plane.position.z=0;
+        scene.add(plane);
+
+        //相机位置朝向
+        camera.position.x=-40;
+        camera.position.y=60;//注意坐标
+        camera.position.z=30;
+        camera.lookAt(scene.position);
+
+        //环境光
+        var ambientLight=new THREE.AmbientLight(0x0c0c0c);
+        scene.add(ambientLight);
+
+        //聚光灯
+        var spotLight=new THREE.SpotLight(0xffffff);
+        spotLight.position.set(-40,60,-10);
+        spotLight.castShadow=true;
+        scene.add(spotLight);
+
+        //添加到DOM
+        document.querySelector("#WebGL-output").appendChild(renderer.domElement);
+
+        //控制变量 构造函数
+        function Controls() {
+            this.rotationSpeed=0.02; //旋转参数
+            this.numberOfObjects=scene.children.length;//场景内物体个数
+
+            this.addCube=function () { //添加函数
+                var cubeSize=Math.ceil(Math.random()*3);
+                var cubeGeometry=new THREE.BoxGeometry(cubeSize,cubeSize,cubeSize);
+                var cubeMaterial=new THREE.MeshLambertMaterial({color:Math.random()*0xffffff});
+                var cube=new THREE.Mesh(cubeGeometry,cubeMaterial);
+                cube.castShadow=true;
+                cube.name="cube-"+scene.children.length;
+                cube.position.x = -30 + Math.round((Math.random() * planeGeometry.parameters.width));
+                cube.position.y = Math.round((Math.random() * 5));
+                cube.position.z = -20 + Math.round((Math.random() * planeGeometry.parameters.height));
+                scene.add(cube);
+                this.numberOfObjects=scene.children.length;
+            };
+
+            this.removeCube=function () { //删除函数
+                var allChildren=scene.children;
+                var lastObject=allChildren[allChildren.length-1];
+                if (lastObject instanceof THREE.Mesh){
+                    scene.remove(lastObject);
+                    this.numberOfObjects=scene.children.length;
+                }
+            };
+
+            this.outputObjects=function () {
+                console.log(scene.children);//后台显示场景内物体
+            }
+        }
+
+        //实例控制对象
+        var controls=new Controls();
+
+        //绑定参数
+        var gui=new dat.GUI();
+        gui.add(controls,'rotationSpeed',0,0.5);
+        gui.add(controls,'addCube');
+        gui.add(controls,'removeCube');
+        gui.add(controls,'outputObjects');
+        gui.add(controls,'numberOfObjects').listen();
+
+        //渲染函数
+        function render() {
+            stats.update();
+            scene.traverse(function (e) {
+                if (e instanceof THREE.Mesh && e!==plane){
+                    e.rotation.y+=controls.rotationSpeed;
+                }
+            });
+            requestAnimationFrame(render);
+            renderer.render(scene,camera);
+        }
+        render();
+    }
+
+    //load触发执行
+    window.onload=init;
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>XW
+</head>
+<body>
+<script type="text/javascript">
+    function CustomError(message) {
+        this.name='自定义错误';
+        this.message=message;
+    }
+    CustomError.prototype=new Error();
+    try{
+        console.log(num);//可能出错的语句
+    }catch (error) {
+        throw new CustomError('显示自定义的错误');
+        //自定义的错误
+    }finally {
+        console.log('始终会执行');//始终会执行
+    }
+</script>
+</body>
+</html>

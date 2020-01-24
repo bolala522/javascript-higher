@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function mySubmit() {
+            var radio=document.getElementsByName("color");
+            console.log(radio);
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li>
+        <input type="radio" value="red" name="color" id="colorRed">
+        <label for="colorRed">红色</label>
+        <input type="radio" value="green" name="color" id="colorGreen">
+        <label for="colorGreen">绿色</label>
+        <input type="radio" value="blue" name="color" id="colorBlue">
+        <label for="colorBlue">蓝色</label>
+    </li>
+</ul>
+<input type="button" value="获得选取" onclick="mySubmit()">
+</body>
+</html>

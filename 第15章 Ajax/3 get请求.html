@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function addURLParam(url, name, value) { //传参数 拼接URL
+        url += (url.indexOf("?") === -1 ? "?" : "&");
+        url += encodeURIComponent(name) + "=" +
+            encodeURIComponent(value);
+        return url;
+    }
+
+    let url = "example.php";
+    url = addURLParam(url, "name", "hashiqi");
+    url = addURLParam(url, "age", "25");//写入两个参数
+    console.log(url);
+
+    let xhr = new XMLHttpRequest();//发起Ajax
+    xhr.open("get", url, false);//是同步请求
+    xhr.send(null);
+    if (xhr.status >= 200&&xhr.status < 300||xhr.status === 304) {
+        let data = JSON.parse(xhr.responseText);
+        console.log(data);
+    } else {
+        console.log("请求失败：" + xhr.status);
+    }
+</script>
+</body>
+</html>

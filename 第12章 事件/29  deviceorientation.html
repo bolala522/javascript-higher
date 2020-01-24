@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #my+img{
+            display: block;
+            width: 50%;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+<div id="my"></div>
+<img src="img/指南针.png" alt="">
+<script>
+    var my=document.querySelector("#my");
+    window.addEventListener('deviceorientation', function(event) {
+        my.innerHTML=(event.alpha).toFixed(1)
+            + ' : ' + (event.beta).toFixed(1)
+            + ' : ' + (event.gamma).toFixed(1);
+    });
+    window.addEventListener('deviceorientation', function(event) {
+        var mypic=document.querySelector("#my+img");
+        mypic.style.transform="rotate("+Math.round(event.alpha)+"deg)";
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function fun1(myName) {
+        return function (obj1,obj2) {
+            var value1=obj1[myName];
+            var value2=obj2[myName];
+            console.log(value1+";"+value2);
+        }
+    }
+    var compare=fun1("name");
+    var result=compare({name:"bolala"},{name:"hashiqi"});
+    //bolala;hashiqi
+    compare=null;//释放内存
+</script>
+</body>
+</html>

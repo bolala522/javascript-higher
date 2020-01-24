@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var audio=new Audio('source/horse.mp3');
+    window.onload=function(){
+        audio.addEventListener('canplaythrough',function () {
+            audio.play();
+        })
+    };
+</script>
+</body>
+</html>

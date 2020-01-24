@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .my{
+            width: 100px;
+            height: 3000px;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+<div class="my"></div>
+<script>
+    var myDiv=document.querySelector(".my");
+    document.addEventListener("mousewheel",function (event) {
+        console.log(event.wheelDelta);
+    })
+</script>
+</body>
+</html>
